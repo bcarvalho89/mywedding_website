@@ -1,0 +1,20 @@
+@charset 'UTF-8';
+
+/* Layout */
+.container {
+	position: relative;
+	max-width: $max-width-container;
+	margin: 0 auto;
+
+	transition: .5s ease-in-out;
+}
+
+.container-wrap {
+	position: relative;
+	padding: $gutter;
+}
+
+.container-fluid {
+	width: 100%;
+	position: relative;
+}

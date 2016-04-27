@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+/* Vars */
+
+// Colors 
+$pink: #efb8c6;
+$tiffanny: #29aba7;
+$text: #3c3c3c;
+$bg: #f9f9fb;
+
+// Misc
+$gutter: 15px;
+$border-radius: 5px;
+
+// Grid Overwrite
+$fg-columns: 12;
+$fg-gutter: $gutter;
+$max-width-container: 1200px;
+
+$cubic: cubic-bezier(.4,0,.2,1);
+
+$amatic: 'Amatic SC', cursive;
+$josefin: 'Josefin Sans', sans-serif;
