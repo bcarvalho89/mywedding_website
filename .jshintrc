@@ -22,6 +22,6 @@
   "globals" : {
     "jQuery": true,
     "Modernizr": true,
-    "Instafeed": true
+    "alert": true
   }
 }
