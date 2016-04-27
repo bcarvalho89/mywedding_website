@@ -24,7 +24,7 @@
 // Sections
 @import 'partials/_menu.scss';
 @import 'partials/_footer.scss';
-
+@import 'partials/_guestbook.scss';
 
 //----------------------------------*\
 // OBJECTS & MODULES
@@ -35,7 +35,7 @@
 @import 'modules/_typography.scss';
 
 // Enhancement modules
-@import 'modules/_breakpoints.scss';
+@import 'core/_breakpoints.scss';
 
 //----------------------------------*\
 // VENDOR

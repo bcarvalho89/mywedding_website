@@ -38,7 +38,7 @@
 						'<span>'+ data.date_time +'</span>'+
 						'</div>';
 						messagesContainer.prepend(output);
-					form.reset();
+						form.reset();
 					}
 					console.log("success");
 				})

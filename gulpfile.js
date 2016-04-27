@@ -45,7 +45,7 @@ gulp.task('css', function () {
 	.pipe(gulp.dest('dist/assets/css'))
 	.pipe(size({title: 'css'}))
 	.pipe(notify({ message: 'Styles task complete' }))
-	.pipe(browserSync.reload({stream:true}));
+	.pipe(browserSync.reload({stream:true, once: true}));
 	});
 
 gulp.task('js',function(){
