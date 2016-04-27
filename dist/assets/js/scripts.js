@@ -11,7 +11,8 @@
 	$(function () {
 
 		var messagesContainer = $('#messages'),
-		messagesAPI = 'inc/guestbook/message.php';
+		messagesAPI = 'inc/guestbook/message.php',
+		pageNum = messagesContainer.data('page');
 
 		$(document).ready(function() {
 
@@ -41,7 +42,7 @@
 			});
 
 			/* Fetch first page of messages */
-			$.getJSON(messagesAPI, {select: true}, function(response) {
+			$.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
 				if (response.success) {
 					var data = response.data;
 					for (var i = 0; i < data.length; i++) {

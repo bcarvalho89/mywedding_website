@@ -29,7 +29,7 @@
 
 	<link href="//www.google-analytics.com" rel="dns-prefetch">
 	<link href="//ajax.googleapis.com" rel="dns-prefetch">
-	<link href="assets/css/style.min.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
 
 	<script src="assets/components/modernizr/modernizr.js"></script>
 </head>

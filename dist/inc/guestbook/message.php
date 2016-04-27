@@ -62,12 +62,7 @@ if (isset($_POST["insert"])) {
 
 } else if (isset($_GET["select"])) {
 
-	$rowsPerPage = 2;
-	$pageNum = 1;
-
-	if(isset($_GET['page'])) {
-		$pageNum = $_GET['page'];
-	}
+	$pageNum = $_GET['page'];
 
 	$offset = ($pageNum - 1) * $rowsPerPage;
 	$results = '';
@@ -83,6 +78,9 @@ if (isset($_POST["insert"])) {
 
 		/* fetch values */
 		while ($statement->fetch()) {
+			$phpdate = strtotime( $date_time );
+			$date_time = date( 'd/m/Y', $phpdate );
+
 			$results[] = array(
 				'name' => $name,
 				'message' => $message,

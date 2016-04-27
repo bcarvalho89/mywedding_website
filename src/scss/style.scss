@@ -10,12 +10,12 @@
 //----------------------------------*/
 
 // Config modules
-@import 'modules/_vars.scss';
-@import 'modules/_grid.scss';
-@import 'modules/_default.scss';
-@import 'modules/_layout.scss';
-@import 'modules/_normalize.scss';
-@import 'modules/_helpers.scss';
+@import 'core/_vars.scss';
+@import 'core/_grid.scss';
+@import 'core/_default.scss';
+@import 'core/_layout.scss';
+@import 'core/_normalize.scss';
+@import 'core/_helpers.scss';
 
 //----------------------------------*\
 // PARTIALS
@@ -30,6 +30,7 @@
 // OBJECTS & MODULES
 //----------------------------------*/
 
+@import 'modules/_buttons.scss';
 @import 'modules/_inputs.scss';
 @import 'modules/_typography.scss';
 
