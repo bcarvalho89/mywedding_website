@@ -3,7 +3,7 @@
 ?>
 
 <script src="assets/components/jquery/jquery.min.js"></script>
-<script src="assets/js/scripts.min.js"></script>
+<script src="assets/js/scripts.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

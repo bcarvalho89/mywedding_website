@@ -4,7 +4,9 @@
 require_once("../config.php");
 
 
-if (isset($_POST["ajax"])) {
+
+
+if (isset($_POST["insert"])) {
 	$response = array('success' => true);
 
 	// assigning the $_POST values to varaible
@@ -22,7 +24,7 @@ if (isset($_POST["ajax"])) {
 		$response['msg'][] = 'Digite sua mensagem';
 	}
 
-    // display the error messsage
+    // display the error message
 	if(!$response["success"]) { 
 		echo json_encode($response);
 		die;
@@ -43,14 +45,14 @@ if (isset($_POST["ajax"])) {
 
 			$db->close();
 		} else {
-			$statment = $db->prepare("INSERT INTO guestbook (name,message,ip,date_time) VALUES (?,?,?,now())");
-			$statment->bind_param("ssi", $name, $message, $ip);
+			$statement = $db->prepare("INSERT INTO guestbook (name,message,ip,date_time) VALUES (?,?,?,now())");
+			$statement->bind_param("ssi", $name, $message, $ip);
 
-			if(!$result = $statment->execute()){
+			if(!$result = $statement->execute()){
 				die('There was an error running the query [' . $db->error . ']');
 			}
 
-			$statment->close();
+			$statement->close();
 			$db->close();
 
 			$response = array('success' => true);
@@ -58,7 +60,54 @@ if (isset($_POST["ajax"])) {
 	}
 
 
-} else {
+} else if (isset($_GET["select"])) {
+
+	$rowsPerPage = 2;
+	$pageNum = 1;
+
+	if(isset($_GET['page'])) {
+		$pageNum = $_GET['page'];
+	}
+
+	$offset = ($pageNum - 1) * $rowsPerPage;
+	$results = '';
+
+	$query = "SELECT name,message,date_time FROM guestbook ORDER by date_time DESC LIMIT $offset, $rowsPerPage";
+
+	if ($statement = $db->prepare($query)) {
+		/* execute statement */
+		$statement->execute();
+
+		/* bind result variables */
+		$statement->bind_result($name, $message, $date_time);
+
+		/* fetch values */
+		while ($statement->fetch()) {
+			$results[] = array(
+				'name' => $name,
+				'message' => $message,
+				'date_time' => $date_time
+				);
+		}
+
+		if ($results == '') {
+			$response = array('success' => false);
+		} else {
+			$response = array('success' => true, 'data' => $results, 'page' => $pageNum);
+		}
+
+
+		$statement->free_result();
+
+		/* close statement */
+		$statement->close();
+	}
+
+	$db->close();
+}
+
+
+else {
 	$response = array('success' => false,'msg' => 'Inválido');
 }
 
