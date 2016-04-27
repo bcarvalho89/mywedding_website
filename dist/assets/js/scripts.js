@@ -19,7 +19,8 @@
 			$('#guestbook').submit(function(event) {
 				event.preventDefault();
 				var name = $(this).find('#guestName').val(),
-				message = $(this).find('#guestMessage').val();
+				message = $(this).find('#guestMessage').val(),
+				form = this;
 
 				$.ajax({
 					url: messagesAPI,
@@ -29,6 +30,16 @@
 				})
 				.done(function(response) {
 					console.log(response);
+					if (response.success) {
+						var data = response.data;
+						var output = '<div class="message">'+
+						'<p>'+ data.message +'</p>'+ 
+						'<h2>'+ data.name +'</h2>'+ 
+						'<span>'+ data.date_time +'</span>'+
+						'</div>';
+						messagesContainer.prepend(output);
+					form.reset();
+					}
 					console.log("success");
 				})
 				.fail(function(error) {

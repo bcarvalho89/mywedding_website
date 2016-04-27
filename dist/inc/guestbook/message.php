@@ -54,61 +54,68 @@ if (isset($_POST["insert"])) {
 
 			$statement->close();
 			$db->close();
+			$date_time = strtotime("now");
+			$date_time = date( 'd/m/Y', $date_time );
 
-			$response = array('success' => true);
-		}
-	}
-
-
-} else if (isset($_GET["select"])) {
-
-	$pageNum = $_GET['page'];
-
-	$offset = ($pageNum - 1) * $rowsPerPage;
-	$results = '';
-
-	$query = "SELECT name,message,date_time FROM guestbook ORDER by date_time DESC LIMIT $offset, $rowsPerPage";
-
-	if ($statement = $db->prepare($query)) {
-		/* execute statement */
-		$statement->execute();
-
-		/* bind result variables */
-		$statement->bind_result($name, $message, $date_time);
-
-		/* fetch values */
-		while ($statement->fetch()) {
-			$phpdate = strtotime( $date_time );
-			$date_time = date( 'd/m/Y', $phpdate );
-
-			$results[] = array(
+			$response = array('success' => true, 'data' => array(
 				'name' => $name,
 				'message' => $message,
 				'date_time' => $date_time
-				);
+				)
+			);
 		}
-
-		if ($results == '') {
-			$response = array('success' => false);
-		} else {
-			$response = array('success' => true, 'data' => $results, 'page' => $pageNum);
 		}
 
 
-		$statement->free_result();
+	} else if (isset($_GET["select"])) {
 
-		/* close statement */
-		$statement->close();
+		$pageNum = $_GET['page'];
+
+		$offset = ($pageNum - 1) * $rowsPerPage;
+		$results = '';
+
+		$query = "SELECT name,message,date_time FROM guestbook ORDER by date_time DESC LIMIT $offset, $rowsPerPage";
+
+		if ($statement = $db->prepare($query)) {
+			/* execute statement */
+			$statement->execute();
+
+			/* bind result variables */
+			$statement->bind_result($name, $message, $date_time);
+
+			/* fetch values */
+			while ($statement->fetch()) {
+			$phpdate = strtotime( $date_time );
+			$date_time = date( 'd/m/Y', $phpdate );
+
+				$results[] = array(
+					'name' => $name,
+					'message' => $message,
+					'date_time' => $date_time
+					);
+			}
+
+			if ($results == '') {
+				$response = array('success' => false);
+			} else {
+				$response = array('success' => true, 'data' => $results, 'page' => $pageNum);
+			}
+
+
+			$statement->free_result();
+
+			/* close statement */
+			$statement->close();
+		}
+
+		$db->close();
 	}
 
-	$db->close();
-}
+
+	else {
+		$response = array('success' => false,'msg' => 'Inválido');
+	}
 
 
-else {
-	$response = array('success' => false,'msg' => 'Inválido');
-}
-
-
-echo json_encode($response);
-?>
+	echo json_encode($response);
+	?>
