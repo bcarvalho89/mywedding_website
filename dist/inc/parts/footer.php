@@ -2,6 +2,12 @@
 /* Footer */
 ?>
 
+<footer>
+	<div class="container">
+		<p>Desenvolvido com <svg class="heart" viewBox="0 0 510.2 396.9" style="enable-background:new 0 0 510.2 396.9;" xml:space="preserve"><path d="M255,390.8c0,0-385.2-249.7-184.4-369.1c105.2-62.5,184.4,82,184.4,82s79.5-144.5,184.7-82C640.5,141.1,255,390.8,255,390.8z"/></svg> por <a href="http://brunocarvalho.me" target="_blank">Bruno Carvalho</a>
+	</div>
+</footer>
+
 <script src="assets/components/jquery/jquery.min.js"></script>
 <script src="assets/js/scripts.js"></script>
 

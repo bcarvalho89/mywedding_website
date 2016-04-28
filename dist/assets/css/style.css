@@ -1305,6 +1305,25 @@ textarea {
 
 /* Menu */
 /* Footer */
+footer {
+  background-color: #29aba7;
+  width: 100%;
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+  padding: 17px 0; }
+  footer .heart {
+    fill: #efb8c6;
+    width: 25px;
+    vertical-align: bottom; }
+  footer p {
+    margin: 0; }
+  footer a {
+    text-decoration: underline;
+    transition: .3s ease-in-out; }
+    footer a:hover {
+      color: #efb8c6; }
+
 /* Guestbook */
 #messages {
   -webkit-column-count: 3;
