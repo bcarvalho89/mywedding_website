@@ -60,7 +60,7 @@ if (isset($_POST["insert"])) {
 			$response = array('success' => true, 'data' => array(
 				'name' => $name,
 				'message' => $message,
-				'date_time' => $date_time
+				'dateTime' => $date_time
 				)
 			);
 		}
@@ -91,7 +91,7 @@ if (isset($_POST["insert"])) {
 				$results[] = array(
 					'name' => $name,
 					'message' => $message,
-					'date_time' => $date_time
+					'dateTime' => $date_time
 					);
 			}
 

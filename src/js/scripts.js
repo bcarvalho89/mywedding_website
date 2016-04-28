@@ -27,19 +27,19 @@
 						var output = '<div class="message">'+
 						'<p>'+ data.message +'</p>'+ 
 						'<h2>'+ data.name +'</h2>'+ 
-						'<span>'+ data.date_time +'</span>'+
+						'<span>'+ data.dateTime +'</span>'+
 						'</div>';
 						messagesContainer.prepend(output);
 						form.reset();
 					}
-					console.log("success");
+					//console.log("success");
 				})
 				.fail(function(error) {
 					console.log(error);
-					console.log("error");
+					//console.log("error");
 				})
 				.always(function() {
-					console.log("complete");
+					//console.log("complete");
 				});
 				
 			});
@@ -52,7 +52,7 @@
 						var output = '<div class="message">'+
 						'<p>'+ data[i].message +'</p>'+ 
 						'<h2>'+ data[i].name +'</h2>'+ 
-						'<span>'+ data[i].date_time +'</span>'+
+						'<span>'+ data[i].dateTime +'</span>'+
 						'</div>';
 						messagesContainer.append(output);
 					}
@@ -73,7 +73,7 @@
 							var output = '<div class="message">'+
 							'<p>'+ data[i].message +'</p>'+ 
 							'<h2>'+ data[i].name +'</h2>'+ 
-							'<span>'+ data[i].date_time +'</span>'+
+							'<span>'+ data[i].dateTime +'</span>'+
 							'</div>';
 							messagesContainer.append(output);
 						}
