@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+/* Master Title */
+.title {
+	color: #fff;
+	&:before {
+		content: "";
+		height: 50px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background-color: $tiffanny;
+		background-image: url(../img/bg/title_pattern.png);
+		z-index: -1;
+	}
+	h2 {
+		background-color: $pink;
+		margin-left: $gutter;
+		padding: 10px 24px;
+		font-size: 2.7em;
+	}
+	.line {
+		height: 2px;
+		background-color: $pink;
+		width: 100%;
+	}
+}

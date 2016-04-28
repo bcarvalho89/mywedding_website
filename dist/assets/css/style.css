@@ -1311,7 +1311,7 @@ footer {
   text-align: right;
   color: #fff;
   font-size: 14px;
-  padding: 17px 0; }
+  padding: 16px 0; }
   footer .heart {
     fill: #efb8c6;
     width: 25px;
@@ -1335,4 +1335,32 @@ footer {
 
 /* Buttons */
 /* Inputs */
+/* Master Title */
+.title {
+  color: #fff; }
+  .title:before {
+    content: "";
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #29aba7;
+    background-image: url(../img/bg/title_pattern.png);
+    z-index: -1; }
+  .title h2 {
+    background-color: #efb8c6;
+    margin-left: 15px;
+    padding: 10px 24px;
+    font-size: 2.7em; }
+  .title .line {
+    height: 2px;
+    background-color: #efb8c6;
+    width: 100%; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Amatic SC", cursive;
+  margin: 0;
+  display: inline-block; }
+
 /* External */

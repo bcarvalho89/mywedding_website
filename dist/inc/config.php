@@ -15,4 +15,16 @@ if ($db->connect_errno) {
 	echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
 }
 
+function title($title) {
+	$output = "<div class=\"container-fluid title\">
+	<div class=\"container\">
+		<h2>". $title ."</h2>
+	</div>
+	<div class=\"line\"></div>
+</div>";
+
+echo $output;
+}
+
+
 ?>

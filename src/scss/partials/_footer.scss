@@ -7,17 +7,17 @@ footer {
 	text-align: right;
 	color: #fff;
 	font-size: 14px;
-	padding: 17px 0;
+	padding: 16px 0;
 	.heart {
 		fill: $pink;
 		width: 25px;
-		    vertical-align: bottom;
+		vertical-align: bottom;
 	}
 	p {
 		margin: 0;
 	}
 	a {
-			text-decoration: underline;
+		text-decoration: underline;
 		transition: .3s ease-in-out;
 		&:hover {
 			color: $pink;

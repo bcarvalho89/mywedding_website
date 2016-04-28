@@ -1,5 +1,7 @@
 <?php include('inc/parts/head.php'); ?>
 
+<?php title("Mensagens"); ?>
+
 <div id="messages" data-page="1">
 </div>
 
