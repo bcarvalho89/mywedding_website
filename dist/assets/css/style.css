@@ -904,7 +904,7 @@ button:focus {
   position: relative;
   padding: 15px; }
 
-.container-fluid {
+.container-fluid, .intro {
   width: 100%;
   position: relative; }
 
@@ -1323,6 +1323,27 @@ footer {
     transition: .3s ease-in-out; }
     footer a:hover {
       color: #efb8c6; }
+
+/* Intro Section */
+.intro .cover {
+  position: relative;
+  height: 70vh;
+  background-image: url(../img/bg/cover.jpg);
+  background-size: 100%;
+  background-size: cover;
+  background-position: 50% 100%;
+  background-attachment: fixed;
+  text-indent: -9999px;
+  transition: .05s ease-in-out; }
+  .intro .cover:before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(41, 171, 167, 0.7); }
 
 /* Guestbook */
 #messages {

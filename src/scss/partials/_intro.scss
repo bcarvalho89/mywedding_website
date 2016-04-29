@@ -1,0 +1,26 @@
+/* Intro Section */
+.intro {
+	@extend .container-fluid;
+	.cover {
+		position: relative;
+		height: 70vh;
+		background-image: url(../img/bg/cover.jpg);
+		background-size: 100%;
+		background-size: cover;
+		background-position: 50% 100%;
+		background-attachment: fixed;
+		text-indent: -9999px;
+
+		transition: .05s ease-in-out;
+		&:before {
+			content: "";
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			background-color: rgba($tiffanny,0.7);
+		}
+	}
+}

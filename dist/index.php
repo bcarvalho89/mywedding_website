@@ -1,16 +1,17 @@
 <?php include('inc/parts/head.php'); ?>
 
-<?php title("Mensagens"); ?>
+<?php include('inc/parts/sections/intro.php'); ?>
 
-<div id="messages" data-page="1">
-</div>
+<?php include('inc/parts/sections/history.php'); ?>
 
-<button id="load-more">Carregar mais mensagens</button>
+<?php include('inc/parts/sections/info.php'); ?>
 
-<form id="guestbook">
-	<input type="text" name"txtName" id="guestName" placeholder="Nome" />
-	<textarea name="txtComment" id="guestMessage" placeholder="Mensagem"></textarea>
-	<button type="submit">Enviar</button>
-</form>
+<?php include('inc/parts/sections/rsvp.php'); ?>
+
+<?php include('inc/parts/sections/gifts.php'); ?>
+
+<?php include('inc/parts/sections/photos.php'); ?>
+
+<?php include('inc/parts/sections/guestbook.php'); ?>
 
 <?php include('inc/parts/footer.php'); ?>

@@ -88,13 +88,17 @@
 
 		});
 
-$(window).resize(function() {
+		$(window).resize(function() {
 
-});
+		});
 
-$(window).scroll(function() {
+		$(window).scroll(function() {
+			var scroll = window.scrollY;
+			var scrollDistance = (scroll * 15 / $(window).height());
+			$('.intro .cover').css({
+				'background-position-y' : (100 - scrollDistance) + '%'
+			});
+		});
 
-});
-
-});
+	});
 })(jQuery, window, document);
