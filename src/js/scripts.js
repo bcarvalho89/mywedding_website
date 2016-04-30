@@ -9,9 +9,61 @@
 		scrollOffset = 75,
 		menu = $('.menu'),
 		header = $('header'),
+		countdown = $('.countdown-text'),
 		toTop = $('.to-top');
 
+		Date.dateDiff = function(datepart, fromdate, todate) {
+			datepart = datepart.toLowerCase();
+			var diff = todate - fromdate;
+			var divideBy = {
+				w:604800000, 
+				d:86400000, 
+				h:3600000, 
+				n:60000, 
+				s:1000
+			};
+
+			return Math.floor( diff/divideBy[datepart]);
+		};
+
+		function dateCountdown(date,hour,el){
+			var dataAno = date.substring(6);
+			var dataDia = date.substring(0,2);
+			var dataMes = date.substring(3,5);
+			var y2k  = new Date(dataAno, (dataMes-1), dataDia);
+			var today= new Date();
+			var dias = '';
+			var diferenca = Date.dateDiff('d', y2k, today);
+			
+			if (diferenca === 0) {
+				el.html('É hoje!');
+			} 
+			if (diferenca > 0) {
+				dias = diferenca;
+				el.html('Estamos casados há ' + dias + ' dias');
+			}
+			if (diferenca === 1) {
+				dias = diferenca;
+				el.html('Estamos casados há ' + dias + ' dia');
+			}
+
+			if (diferenca < 0) {
+				dias = Math.abs(diferenca);
+				el.html('Faltam ' + dias + ' dias');
+			}
+
+			if (diferenca === -1) {
+				dias = Math.abs(diferenca);
+				el.html('É amanhã!');
+			}
+
+		}
+
 		$(document).ready(function() {
+
+			dateCountdown('28/08/2016','11:00h',countdown);
+
+			//CountDownTimer('04/30/2016 03:20 PM', countdown);
 
 			/* Botao topo */
 			toTop.click(function(e) {
@@ -23,8 +75,8 @@
 
 			menu.on('click', 'a', function(event) {
 				event.preventDefault();
-				menu.find('.active').removeClass('active');
-				$(this).addClass('active');
+				//menu.find('.active').removeClass('active');
+				//$(this).addClass('active');
 				var $target = $('#'+($(this).data('section')));
 				$('html, body').stop().animate({
 					'scrollTop': $target.offset().top - scrollOffset
@@ -120,7 +172,7 @@
 			var scroll = window.scrollY;
 			var top = $(this).scrollTop();
 			var scrollDistance = (scroll * 15 / $(window).height());
-			
+
 			$('#intro .cover').css({
 				'background-position-y' : (100 - scrollDistance) + '%'
 			});
@@ -136,7 +188,7 @@
 			$('.menu a').each(function () {
 				var currLink = $(this);
 				var refElement = $('#' + currLink.data('section'));
-				if (refElement.position().top - scrollOffset <= top && refElement.position().top + refElement.height() > top) {
+				if (refElement.position().top - (scrollOffset * 2) <= top && refElement.position().top + refElement.height() > top) {
 					$('.menu a').removeClass('active');
 					currLink.addClass('active');
 				}

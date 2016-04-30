@@ -9,7 +9,7 @@
 
 		<div class="countdown">
 			<div class="container">
-				<span class="countdown-text">Faltam 90 dias</span>
+				<span class="countdown-text"></span>
 			</div>
 		</div>
 
