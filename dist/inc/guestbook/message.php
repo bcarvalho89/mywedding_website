@@ -39,12 +39,12 @@ if (isset($_POST["insert"])) {
 		$statement->execute();
 		$statement->store_result();
 
-		if ($statement->num_rows > 0) {
+		/*if ($statement->num_rows > 0) {
 			$response['success'] = false;
 			$response['msg'][] = 'Já foi enviada uma mensagem com o mesmo endereço de IP';
 
 			$db->close();
-		} else {
+		} else {*/
 			$statement = $db->prepare("INSERT INTO guestbook (name,message,ip,date_time) VALUES (?,?,?,now())");
 			$statement->bind_param("ssi", $name, $message, $ip);
 
@@ -63,7 +63,7 @@ if (isset($_POST["insert"])) {
 				'dateTime' => $date_time
 				)
 			);
-		}
+		//}
 		}
 
 

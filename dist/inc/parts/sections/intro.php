@@ -9,16 +9,21 @@
 
 		<div class="countdown">
 			<div class="container">
-				<span class="countdown-text"></span>
+
+				<div class="row">
+					<span class="countdown-text"></span>
+				</div>
 			</div>
 		</div>
 
 	</div>
 	<div class="content">
 		<div class="container">
-			<div class="col-xs-12 text-center">
-				<h3>Bem-vindo ao nosso site!</h3>
-				<p>Aqui você encontrará todas as informações necessárias para participar do nosso grande dia!<br/>"Felicidade é poder compartilar bons momentos com que amamos!"</p>
+			<div class="row">
+				<div class="col-xs-12 text-center">
+					<h3>Bem-vindo ao nosso site!</h3>
+					<p>Aqui você encontrará todas as informações necessárias para participar do nosso grande dia!<br/>"Felicidade é poder compartilar bons momentos com que amamos!"</p>
+				</div>
 			</div>
 		</div>
 	</div>

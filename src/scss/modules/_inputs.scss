@@ -1,3 +1,23 @@
 @charset 'UTF-8';
 
 /* Inputs */
+
+input,
+textarea {
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid rgba($tiffanny,0.2);
+	margin-bottom: $gutter;
+	padding: 5px;
+	
+	transition: .5s ease-in-out;
+	&:active,
+	&:focus {
+		border-bottom: 2px solid $tiffanny;
+	}
+}
+
+textarea {
+	resize: none;
+	min-height: 150px;
+}

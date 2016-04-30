@@ -4,6 +4,7 @@
 
 <header>
 	<div class="container">
+	<div class="row">
 		<div class="col-lg-12 text-right">
 			<ul class="menu">
 				<li>
@@ -26,5 +27,6 @@
 				</li>
 			</ul>
 		</div>
+	</div>
 	</div>
 </header>

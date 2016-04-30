@@ -1,5 +1,61 @@
 /* Guestbook */
 #messages {
-	column-count: 3;
-	column-gap: $gutter;
-}
+	/*column-count: 3;
+	column-gap: $gutter*2;
+	column-width: 33.3%;*/
+	width: 100%;
+	text-align: left;
+	margin: $gutter*2 0;
+	@extend .clear;
+	&:before {
+		content: '3 .column.size-1of3';
+	}
+	&.no-messages {
+		/*column-count: 1;*/
+		text-align: center;
+	}
+	.column {
+		float: left;
+		&:nth-child(odd) {
+			.message {
+				background-color: $pink;
+			}
+		}
+		&:nth-child(even) {
+			.message {
+				background-color: $tiffanny;
+			}
+		}
+	}
+	.size-1of3 {
+		width: 33.333%;
+	}
+	.message {
+		text-align: justify;
+		margin: 0 10px 20px;
+		/*page-break-inside: avoid;
+		break-inside: avoid;*/
+		color: #fff;
+		padding: $gutter*2;
+		margin-bottom: $gutter*2;
+		/*.message-wrap {
+			border: 2px solid #fff;
+			padding: $gutter;
+			p:last-child {
+				margin-bottom: 0;
+			}
+			}*/
+		}
+	}
+
+	#guestbook_form {
+		width: 100%;
+		margin-top: $gutter*2;
+		.response {
+			margin-bottom: $gutter;
+			span {
+				display: block;
+				font-size: 80%;
+			}
+		}
+	}

@@ -1275,13 +1275,13 @@ textarea {
   -webkit-appearance: none; }
 
 /* Helpers */
-.clear:before, .clear:after {
+.clear:before, #messages:before, .clear:after, #messages:after {
   content: ' ';
   display: table; }
 
-.clear {
+.clear, #messages {
   *zoom: 1; }
-  .clear:after {
+  .clear:after, #messages:after {
     clear: both; }
 
 .text-right {
@@ -1343,6 +1343,22 @@ textarea {
   70% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1); } }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg); } }
 
 /* Header */
 header {
@@ -1434,7 +1450,7 @@ footer {
 #intro .countdown {
   width: 100%;
   position: absolute;
-  bottom: 7.5px;
+  bottom: 0;
   left: 0;
   z-index: 2; }
   #intro .countdown .countdown-text {
@@ -1450,15 +1466,85 @@ footer {
 
 /* Guestbook */
 #messages {
-  -webkit-column-count: 3;
-     -moz-column-count: 3;
-          column-count: 3;
-  -webkit-column-gap: 15px;
-     -moz-column-gap: 15px;
-          column-gap: 15px; }
+  /*column-count: 3;
+	column-gap: $gutter*2;
+	column-width: 33.3%;*/
+  width: 100%;
+  text-align: left;
+  margin: 30px 0; }
+  #messages:before {
+    content: '3 .column.size-1of3'; }
+  #messages.no-messages {
+    /*column-count: 1;*/
+    text-align: center; }
+  #messages .column {
+    float: left; }
+    #messages .column:nth-child(odd) .message {
+      background-color: #efb8c6; }
+    #messages .column:nth-child(even) .message {
+      background-color: #29aba7; }
+  #messages .size-1of3 {
+    width: 33.333%; }
+  #messages .message {
+    text-align: justify;
+    margin: 0 10px 20px;
+    /*page-break-inside: avoid;
+		break-inside: avoid;*/
+    color: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    /*.message-wrap {
+			border: 2px solid #fff;
+			padding: $gutter;
+			p:last-child {
+				margin-bottom: 0;
+			}
+			}*/ }
+
+#guestbook_form {
+  width: 100%;
+  margin-top: 30px; }
+  #guestbook_form .response {
+    margin-bottom: 15px; }
+    #guestbook_form .response span {
+      display: block;
+      font-size: 80%; }
 
 /* Buttons */
+.btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 8px 20px; }
+  .btn.tiffanny {
+    background-color: #29aba7; }
+  .btn.pink {
+    background-color: #efb8c6; }
+  .btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed; }
+
 /* Inputs */
+input,
+textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(41, 171, 167, 0.2);
+  margin-bottom: 15px;
+  padding: 5px;
+  transition: .5s ease-in-out; }
+  input:active, input:focus,
+  textarea:active,
+  textarea:focus {
+    border-bottom: 2px solid #29aba7; }
+
+textarea {
+  resize: none;
+  min-height: 150px; }
+
 /* Master Title */
 .title {
   color: #fff; }
@@ -1483,6 +1569,69 @@ footer {
     height: 2px;
     background-color: #efb8c6;
     width: 100%; }
+
+@font-face {
+  font-family: 'brukel';
+  src: url("../fonts/brukel.eot?59704945");
+  src: url("../fonts/brukel.eot?59704945#iefix") format("embedded-opentype"), url("../fonts/brukel.woff2?59704945") format("woff2"), url("../fonts/brukel.woff?59704945") format("woff"), url("../fonts/brukel.ttf?59704945") format("truetype"), url("../fonts/brukel.svg?59704945#brukel") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'brukel';
+    src: url('../font/brukel.svg?59704945#brukel') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "brukel";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
+
+.icon-spinner:before {
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
+  content: '\e800'; }
+
+.icon-plus:before {
+  content: '\e801'; }
+
+.icon-whatsapp:before {
+  content: '\e802'; }
+
+.icon-phone:before {
+  content: '\e803'; }
+
+.icon-mail:before {
+  content: '\e804'; }
+
+.icon-ok:before {
+  content: '\e805'; }
 
 p {
   margin: 0 0 15px 0; }

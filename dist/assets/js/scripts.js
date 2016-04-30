@@ -18,6 +18,7 @@
 		menu = $('.menu'),
 		header = $('header'),
 		countdown = $('.countdown-text'),
+		loadMore = $('#load-more'),
 		toTop = $('.to-top');
 
 		Date.dateDiff = function(datepart, fromdate, todate) {
@@ -92,11 +93,12 @@
 				});
 			});
 
-			$('#guestbook').submit(function(event) {
+			$('#guestbook_form').submit(function(event) {
 				event.preventDefault();
 				var name = $(this).find('#guestName').val(),
 				message = $(this).find('#guestMessage').val(),
-				form = this;
+				form = this,
+				responseEl = $(form).find('.response');
 
 				$.ajax({
 					url: messagesAPI,
@@ -106,15 +108,29 @@
 				})
 				.done(function(response) {
 					console.log(response);
+					responseEl.html('');
 					if (response.success) {
 						var data = response.data;
 						var output = '<div class="message">'+
+						'<div class="message-wrap">'+
 						'<p>'+ data.message +'</p>'+ 
+						'</div>'+
 						'<h2>'+ data.name +'</h2>'+ 
 						'<span>'+ data.dateTime +'</span>'+
 						'</div>';
-						messagesContainer.prepend(output);
+						var item = document.createElement('div');
+						var grid = document.querySelector('#messages');
+						salvattore['append_elements'](grid, [item]);
+						item.outerHTML = output;
+						messagesContainer.removeClass('no-messages').find('.no-message').remove();
+						loadMore.fadeIn();
 						form.reset();
+					} else {
+						var msg = '';
+						for (var i = 0; i < response.msg.length; i++) {
+							msg += '<span>'+ response.msg[i] +'</span>';
+						}
+						responseEl.html(msg);
 					}
 					//console.log("success");
 				})
@@ -132,38 +148,82 @@
 			$.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
 				if (response.success) {
 					var data = response.data;
-					for (var i = 0; i < data.length; i++) {
+
+					$.each(data, function(index, value){
 						var output = '<div class="message">'+
+						'<div class="message-wrap">'+
+						'<p>'+ value.message +'</p>'+ 
+						'</div>'+
+						'<h2>'+ value.name +'</h2>'+ 
+						'<span>'+ value.dateTime +'</span>'+
+						'</div>';
+						var item = document.createElement('div');
+						var grid = document.querySelector('#messages');
+						salvattore['append_elements'](grid, [item]);
+						item.outerHTML = output;
+					});
+
+					/*for (var i = 0; i < data.length; i++) {
+						var output = '<div class="">'+
+						'<div class="message-wrap">'+
 						'<p>'+ data[i].message +'</p>'+ 
+						'</div>'+
 						'<h2>'+ data[i].name +'</h2>'+ 
 						'<span>'+ data[i].dateTime +'</span>'+
 						'</div>';
 						messagesContainer.append(output);
-					}
+					}*/
+
+					setTimeout(function(){
+					//salvattore.registerGrid(messagesContainer.get(0));
+				}, 10);
 				} else {
-					messagesContainer.append('Sem mensagens');
+					loadMore.hide();
+					messagesContainer.addClass('no-messages').append('<div class="no-message"><p>Não recebemos nenhuma mensagem. Que tal ser o primeiro?</p></div>');
 				}
 			});
 
 			/* Load more messages */
-			$('#load-more').click(function(){
+			loadMore.click(function(){
 				var page = messagesContainer.data('page');
 				var btn = $(this);
+
+				btn.find('i').toggleClass('icon-plus icon-spinner');
 
 				$.getJSON(messagesAPI, {select: true, page: page+1 }, function(response) {
 					if (response.success) {
 						var data = response.data;
-						for (var i = 0; i < data.length; i++) {
-							var output = '<div class="message">'+
+						/*for (var i = 0; i < data.length; i++) {
+							var output = '<div class="">'+
+							'<div class="message-wrap">'+
 							'<p>'+ data[i].message +'</p>'+ 
+							'</div>'+
 							'<h2>'+ data[i].name +'</h2>'+ 
 							'<span>'+ data[i].dateTime +'</span>'+
 							'</div>';
 							messagesContainer.append(output);
-						}
+						}*/
+						$.each(data, function(index, value){
+						var output = '<div class="message">'+
+						'<div class="message-wrap">'+
+						'<p>'+ value.message +'</p>'+ 
+						'</div>'+
+						'<h2>'+ value.name +'</h2>'+ 
+						'<span>'+ value.dateTime +'</span>'+
+						'</div>';
+						var item = document.createElement('div');
+						var grid = document.querySelector('#messages');
+						salvattore['append_elements'](grid, [item]);
+						item.outerHTML = output;
+					});
 						messagesContainer.data('page', page+1);
+						btn.find('i').toggleClass('icon-spinner icon-plus');
 					} else {
-						btn.attr('disabled', 'disabled');
+						setTimeout(function(){
+							btn.find('i').remove();
+							btn.addClass('disabled');
+							btn.attr('disabled', 'disabled');
+						}, 200);
 					}
 				});
 
@@ -172,40 +232,40 @@
 
 		});
 
-		$(window).resize(function() {
+$(window).resize(function() {
 
-		});
+});
 
-		$(window).scroll(function() {
-			var scroll = window.scrollY;
-			var top = $(this).scrollTop();
-			var scrollDistance = (scroll * 15 / $(window).height());
+$(window).scroll(function() {
+	var scroll = window.scrollY;
+	var top = $(this).scrollTop();
+	var scrollDistance = (scroll * 15 / $(window).height());
 
-			$('#intro .cover').css({
-				'background-position-y' : (100 - scrollDistance) + '%'
-			});
-
-			if (top > (winH - (scrollOffset * 6))) {
-				header.addClass('pinned');
-				toTop.addClass('show');
-			} else {
-				header.removeClass('pinned');
-				toTop.removeClass('show');
-			}
-
-			$('.menu a').each(function () {
-				var currLink = $(this);
-				var refElement = $('#' + currLink.data('section'));
-				if (refElement.position().top - (scrollOffset * 2) <= top && refElement.position().top + refElement.height() > top) {
-					$('.menu a').removeClass('active');
-					currLink.addClass('active');
-				}
-				else{
-					currLink.removeClass('active');
-				}
-			});
-
-		});
-
+	$('#intro .cover').css({
+		'background-position-y' : (100 - scrollDistance) + '%'
 	});
+
+	if (top > (winH - (scrollOffset * 6))) {
+		header.addClass('pinned');
+		toTop.addClass('show');
+	} else {
+		header.removeClass('pinned');
+		toTop.removeClass('show');
+	}
+
+	$('.menu a').each(function () {
+		var currLink = $(this);
+		var refElement = $('#' + currLink.data('section'));
+		if (refElement.position().top - (scrollOffset * 2) <= top && refElement.position().top + refElement.height() > top) {
+			$('.menu a').removeClass('active');
+			currLink.addClass('active');
+		}
+		else{
+			currLink.removeClass('active');
+		}
+	});
+
+});
+
+});
 })(jQuery, window, document);
