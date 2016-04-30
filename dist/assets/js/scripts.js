@@ -128,7 +128,8 @@
 			var scroll = window.scrollY;
 			var top = $(this).scrollTop();
 			var scrollDistance = (scroll * 15 / $(window).height());
-			$('.intro .cover').css({
+			
+			$('#intro .cover').css({
 				'background-position-y' : (100 - scrollDistance) + '%'
 			});
 
