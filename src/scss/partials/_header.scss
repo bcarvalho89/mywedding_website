@@ -26,8 +26,9 @@ header {
 			padding: $gutter/2 $gutter;
 
 			transition: all .3s ease;
-			&.active {
-				background-color: red;
+			&.active,
+			&:hover {
+				background-color: darken($pink,15%);
 			}
 		}
 	}

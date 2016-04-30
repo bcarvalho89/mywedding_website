@@ -1364,8 +1364,8 @@ header {
     display: block;
     padding: 7.5px 15px;
     transition: all .3s ease; }
-    .menu li a.active {
-      background-color: red; }
+    .menu li a.active, .menu li a:hover {
+      background-color: #e17a94; }
 
 /* Footer */
 footer {
@@ -1396,7 +1396,7 @@ footer {
   background-size: cover;
   background-position: 50% 100%;
   background-attachment: fixed;
-  transition: .5s ease-in-out; }
+  transition: .05s ease-in-out; }
   #intro .cover:before {
     content: "";
     height: 100%;
