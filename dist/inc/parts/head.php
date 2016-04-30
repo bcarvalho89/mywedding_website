@@ -1,8 +1,5 @@
-<?php 
-	/* Head */
-	require("inc/config.php");
-?>
-<!doctype html>
+﻿<!doctype html>
+<?php require("inc/config.php"); ?>
 <html class="no-js" lang="pt-br">
 <head>
 	<meta charset="utf-8">

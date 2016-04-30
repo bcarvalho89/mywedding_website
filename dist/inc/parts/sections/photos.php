@@ -1,4 +1,4 @@
-<?php /* Photos Section */ ?>
+﻿<?php /* Photos Section */ ?>
 <section>
 	<?php title("Fotos"); ?>
 </section>

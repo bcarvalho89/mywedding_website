@@ -4,4 +4,7 @@
 	<div class="cover">
 		
 	</div>
+	<div class="content">
+		dadhaudhdhadhaudhahs
+	</div>
 </section>

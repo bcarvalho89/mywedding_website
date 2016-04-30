@@ -1,4 +1,4 @@
-<?php include('inc/parts/head.php'); ?>
+﻿<?php include('inc/parts/head.php'); ?>
 
 <?php include('inc/parts/sections/intro.php'); ?>
 

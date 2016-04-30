@@ -71,10 +71,10 @@ if (isset($_POST["insert"])) {
 
 		$pageNum = $_GET['page'];
 
-		$offset = ($pageNum - 1) * $rowsPerPage;
+		$offset = ($pageNum - 1) * $messagesPerPage;
 		$results = '';
 
-		$query = "SELECT name,message,date_time FROM guestbook ORDER by date_time DESC LIMIT $offset, $rowsPerPage";
+		$query = "SELECT name,message,date_time FROM guestbook ORDER by date_time DESC LIMIT $offset, $messagesPerPage";
 
 		if ($statement = $db->prepare($query)) {
 			/* execute statement */
