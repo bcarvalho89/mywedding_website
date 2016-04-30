@@ -1,5 +1,5 @@
 /* Intro Section */
-.intro {
+#intro {
 	@extend .container-fluid;
 	.cover {
 		position: relative;
@@ -9,7 +9,6 @@
 		background-size: cover;
 		background-position: 50% 100%;
 		background-attachment: fixed;
-		text-indent: -9999px;
 
 		transition: .05s ease-in-out;
 		&:before {
@@ -22,5 +21,44 @@
 			z-index: 1;
 			background-color: rgba($tiffanny,0.7);
 		}
+	}
+	.caption {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 2;
+		transform: translate(-50%,-50%);
+		color: #fff;
+		backface-visibility: hidden;
+			perspective: 1000px;
+		h1 {
+			font-size: 5.2em;
+			display: inline-block;
+		}
+		.heart {
+			width: 90px;
+			margin: 0 $gutter * 1.5;
+			display: inline-block;
+			fill: $pink;
+			animation: pulse 5s ease-in-out infinite;
+		}
+	}
+	.countdown {
+		width: 100%;
+		position: absolute;
+		bottom: $gutter/2;
+		left: 0;
+		z-index: 2;
+		.countdown-text {
+			background-color: $pink;
+			color: #fff;
+			font-size: 16px;
+			font-weight: bold;
+			padding: $gutter/2 $gutter;
+			margin-left: $gutter;
+		}
+	}
+	h3 {
+		margin-bottom: $gutter;
 	}
 }

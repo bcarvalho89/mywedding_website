@@ -22,6 +22,10 @@
 	text-align: right;
 }
 
+.text-center {
+  text-align: center;
+}
+
 ::selection{
   background: #333;
   color: #fff;
@@ -36,4 +40,14 @@
   background: #333;
   color: #fff;
   text-shadow: none;
+}
+
+
+/* Animations */
+@keyframes pulse {
+  0%  {  transform: scale3d(1,1,1); }
+  14% { transform: scale3d(1.1,1.1,1.1); }
+  28% { transform: scale3d(1,1,1); }
+  42% { transform: scale3d(1.1,1.1,1.1); }
+  70% { transform: scale3d(1,1,1); }
 }

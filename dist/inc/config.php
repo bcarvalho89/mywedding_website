@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /* Config PHP */
 
 define('DB_SERVER', 'localhost');

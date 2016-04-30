@@ -17,8 +17,12 @@
 	h2 {
 		background-color: $pink;
 		margin-left: $gutter;
-		padding: 10px 24px;
-		font-size: 2.7em;
+		padding: 10px 25px;
+		font-size: 2.2em;
+
+		small {
+			font-size: 50%;
+		}
 	}
 	.line {
 		height: 2px;

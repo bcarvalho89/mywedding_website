@@ -32,3 +32,4 @@
 	<script src="assets/components/modernizr/modernizr.js"></script>
 </head>
 <body>
+	<?php include("inc/parts/header.php"); ?>

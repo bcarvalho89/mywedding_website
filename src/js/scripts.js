@@ -4,9 +4,33 @@
 
 		var messagesContainer = $('#messages'),
 		messagesAPI = 'inc/guestbook/message.php',
-		pageNum = messagesContainer.data('page');
+		pageNum = messagesContainer.data('page'),
+		winH = $(window).height(),
+		scrollOffset = 75,
+		menu = $('.menu'),
+		header = $('header'),
+		toTop = $('.to-top');
 
 		$(document).ready(function() {
+
+			/* Botao topo */
+			toTop.click(function(e) {
+				e.preventDefault();
+				$('body,html').animate({
+					scrollTop: 0,
+				}, 400);
+			});
+
+			menu.on('click', 'a', function(event) {
+				event.preventDefault();
+				menu.find('.active').removeClass('active');
+				$(this).addClass('active');
+				var $target = $('#'+($(this).data('section')));
+				$('html, body').stop().animate({
+					'scrollTop': $target.offset().top - scrollOffset
+				}, 500, 'swing', function () {
+				});
+			});
 
 			$('#guestbook').submit(function(event) {
 				event.preventDefault();
@@ -41,7 +65,7 @@
 				.always(function() {
 					//console.log("complete");
 				});
-				
+
 			});
 
 			/* Fetch first page of messages */
@@ -84,7 +108,7 @@
 				});
 
 			});
-			
+
 
 		});
 
@@ -94,10 +118,32 @@
 
 		$(window).scroll(function() {
 			var scroll = window.scrollY;
+			var top = $(this).scrollTop();
 			var scrollDistance = (scroll * 15 / $(window).height());
 			$('.intro .cover').css({
 				'background-position-y' : (100 - scrollDistance) + '%'
 			});
+
+			if (top > (winH - (scrollOffset * 6))) {
+				header.addClass('pinned');
+				toTop.addClass('show');
+			} else {
+				header.removeClass('pinned');
+				toTop.removeClass('show');
+			}
+
+			$('.menu a').each(function () {
+				var currLink = $(this);
+				var refElement = $('#' + currLink.data('section'));
+				if (refElement.position().top - scrollOffset <= top && refElement.position().top + refElement.height() > top) {
+					$('.menu a').removeClass('active');
+					currLink.addClass('active');
+				}
+				else{
+					currLink.removeClass('active');
+				}
+			});
+
 		});
 
 	});

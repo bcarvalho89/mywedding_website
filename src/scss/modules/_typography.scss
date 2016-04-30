@@ -1,8 +1,16 @@
 @charset 'UTF-8';
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Amatic+SC:400,700);
 
+p {
+	margin: 0 0 $gutter 0;
+}
+
 h1,h2,h3,h4,h5 {
 	font-family: $amatic;
 	margin: 0;
 	display: inline-block;
+}
+
+h3 {
+	font-size: 2em;
 }
