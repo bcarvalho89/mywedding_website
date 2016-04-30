@@ -871,7 +871,11 @@ body {
   font-family: "Josefin Sans", sans-serif;
   color: #3c3c3c;
   background-color: #f9f9fb;
-  font-size: 18px; }
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity .5s ease-in-out; }
+  body.loaded {
+    opacity: 1; }
 
 body, html {
   min-height: 100vh;

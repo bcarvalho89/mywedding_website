@@ -11,6 +11,12 @@ body {
 	color: $text;
 	background-color: $bg;
 	font-size: 18px;
+	opacity: 0;
+
+	transition: opacity .5s ease-in-out;
+	&.loaded {
+		opacity: 1;
+	}
 }
 
 body,html{

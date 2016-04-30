@@ -236,6 +236,12 @@ $(window).resize(function() {
 
 });
 
+$(window).load(function() {
+	setTimeout(function(){
+		$('body').addClass('loaded');
+	}, 1000);
+});
+
 $(window).scroll(function() {
 	var scroll = window.scrollY;
 	var top = $(this).scrollTop();
