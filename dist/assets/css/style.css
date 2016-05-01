@@ -1518,6 +1518,30 @@ footer {
   #history .bruno-text h2 {
     color: #29aba7; }
 
+/* Info */
+#info h4 {
+  font-size: 1.8em; }
+
+#info .info-wrap {
+  background-color: #efb8c6;
+  padding: 15px;
+  color: #fff; }
+  #info .info-wrap .when {
+    /*width: 60%;
+			float: left;*/ }
+  #info .info-wrap .qr {
+    text-align: center;
+    background-color: #29aba7;
+    padding: 5px;
+    /*width: 40%;
+			float: right;*/ }
+    #info .info-wrap .qr .caption {
+      padding: 5px;
+      font-size: 75%; }
+
+#info #mapa {
+  background-color: red; }
+
 /* Guestbook */
 #messages {
   /*column-count: 3;

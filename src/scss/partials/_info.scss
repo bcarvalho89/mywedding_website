@@ -1,0 +1,31 @@
+@charset 'UTF-8';
+
+/* Info */
+#info {
+	h4 {
+		font-size: 1.8em;
+	}
+	.info-wrap {
+		background-color: $pink;
+		padding: $gutter;
+		color: #fff;
+		.when {
+			/*width: 60%;
+			float: left;*/
+		}
+		.qr {
+			text-align: center;
+			background-color: $tiffanny;
+			padding: 5px;
+			/*width: 40%;
+			float: right;*/
+			.caption {
+				padding: 5px;
+				font-size: 75%;
+			}
+		}
+	}
+	#mapa {
+		background-color: red;
+	}
+}
