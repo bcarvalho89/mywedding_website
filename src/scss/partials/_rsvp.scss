@@ -1,0 +1,78 @@
+@charset 'UTF-8';
+
+/* RSVP */
+#rsvp {
+	.assessoria {
+		padding: $gutter;
+		background-color: $pink;
+		color: #fff;
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.rsvp {
+		padding: $gutter;
+		background-color: $tiffanny;
+		color: #fff;
+	}
+	#form_rsvp {
+		margin-top: $gutter *2;
+		label {
+			display: inline-block;
+			margin-right: $gutter/2;
+		}
+		input {
+			display: inline-block;
+			background-color: $bg;
+			border-bottom: 2px solid rgba($pink,0.2);
+			margin-right: $gutter;
+			&:active,
+			&:focus {
+				border-bottom: 2px solid $pink;
+			}
+			&.name {
+				max-width: 200px;
+			}
+			&.child {
+				width: 20px;
+			}
+			&.age {
+				width: 30px;
+			}
+		}
+		.form-group {
+			margin-bottom: $gutter;
+			&:first-child {
+				.name,
+				label:nth-child(3) {
+					margin-left: -3px;
+				}
+				.child {
+					margin-left: -3px;
+				}
+			}
+		}
+		.remove {
+			background-color: #FD0B48;
+		}
+		.add {
+			text-align: center;
+		}
+		.confirmation {
+			margin-top: $gutter*2;
+			text-align: center;
+			.btn {
+				margin: 0 $gutter;
+			}
+			.yes {
+				background-color: darken($tiffanny,15%);
+			}
+			.maybe {
+				background-color: darken($pink,15%);
+			}
+			.no {
+				background-color: #FD0B48;
+			}
+		}
+	}
+}

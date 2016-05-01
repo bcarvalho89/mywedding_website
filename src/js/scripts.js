@@ -64,7 +64,91 @@
 
 			dateCountdown('28/08/2016','11:00h',countdown);
 
-			//CountDownTimer('04/30/2016 03:20 PM', countdown);
+			$('#form_rsvp').on('change', '.child', function(){
+				var check = $(this);
+				if(check.prop('checked')) {
+					check.after('<label>Idade</label><input class="age" type="text" />');
+				} else {
+					check.next().remove();
+					check.next().remove();
+				}
+			});
+
+			$('#more-people').click(function(e){
+				e.preventDefault();
+				var formGroup = $('#form_rsvp .form-group');
+				var lastFormGroup = formGroup.last();
+				var formGroupLength = formGroup.length;
+
+				var block = '<div class="form-group">'+
+				'<label>Pessoa '+ (formGroupLength+1) +'</label>'+
+				'<input class="name" type="text" placeholder="Digite o nome completo" />'+
+				'<label>É criança?</label>'+
+				'<input class="child" type="checkbox" name="child" />'+
+				'<button class="btn remove"><i class="icon-user-remove"></i></button>'+
+				'</div>';
+
+				lastFormGroup.after(block);
+
+			});
+
+			$('#form_rsvp').on('click', '.remove', function(){
+				$(this).parent().remove();
+			});
+
+			$('#form_rsvp .confirmation').click(function(e){
+				e.preventDefault();
+				var group = {};
+				var form = [];
+				var msg = [];
+				var responseEl = $('#form_rsvp .response');
+				var formGroup = $('#form_rsvp .form-group');
+
+				formGroup.each(function(index, el) {
+					var name = $.trim($(el).find('.name').val());
+					var child = false,
+					age = null,
+					error = false;
+
+					if(name.length < 10) {
+						msg.push('Digite o nome completo');
+						error = true;
+					}
+
+					
+					if($(el).find('.child').prop('checked')) {
+						child = true;
+						age = $.trim($(el).find('.age').val());
+						age = parseInt(age);
+						if(age > 14 || isNaN(age)) {
+							msg.push('Digite a idade corretamente');
+							error = true;
+						}
+					}
+					if (!error) {
+						responseEl.html('');
+						group = {
+							'name': name,
+							'child': child,
+							'age': age
+						}
+						form.push(group);
+					} else {
+						var output = '';
+						for (var i = 0; i < msg.length; i++) {
+							output += '<span>'+ msg[i] +'</span>';
+						}
+						responseEl.html(output);
+					}
+				});
+
+				console.log(form);
+
+				//$('#form_rsvp').find('.btn').addClass('disabled').attr('disabled', 'disabled');
+
+
+			});
+
 
 			/* Botao topo */
 			toTop.click(function(e) {
@@ -76,14 +160,14 @@
 
 			menu.on('click', 'a', function(event) {
 				event.preventDefault();
-				//menu.find('.active').removeClass('active');
-				//$(this).addClass('active');
-				var $target = $('#'+($(this).data('section')));
-				$('html, body').stop().animate({
-					'scrollTop': $target.offset().top - scrollOffset
-				}, 500, 'swing', function () {
-				});
-			});
+	//menu.find('.active').removeClass('active');
+	//$(this).addClass('active');
+	var $target = $('#'+($(this).data('section')));
+	$('html, body').stop().animate({
+		'scrollTop': $target.offset().top - scrollOffset
+	}, 500, 'swing', function () {
+	});
+});
 
 			$('#guestbook_form').submit(function(event) {
 				event.preventDefault();
@@ -124,105 +208,105 @@
 						}
 						responseEl.html(msg);
 					}
-					//console.log("success");
-				})
+	//console.log("success");
+})
 				.fail(function(error) {
 					console.log(error);
-					//console.log("error");
-				})
+	//console.log("error");
+})
 				.always(function() {
-					//console.log("complete");
-				});
+	//console.log("complete");
+});
 
 			});
 
-			/* Fetch first page of messages */
-			$.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
-				if (response.success) {
-					var data = response.data;
+/* Fetch first page of messages */
+$.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
+	if (response.success) {
+		var data = response.data;
 
-					$.each(data, function(index, value){
-						var output = '<div class="message">'+
-						'<div class="message-wrap">'+
-						'<p>'+ value.message +'</p>'+ 
-						'</div>'+
-						'<h2>'+ value.name +'</h2>'+ 
-						'<span>'+ value.dateTime +'</span>'+
-						'</div>';
-						var item = document.createElement('div');
-						var grid = document.querySelector('#messages');
-						salvattore['append_elements'](grid, [item]);
-						item.outerHTML = output;
-					});
-
-					/*for (var i = 0; i < data.length; i++) {
-						var output = '<div class="">'+
-						'<div class="message-wrap">'+
-						'<p>'+ data[i].message +'</p>'+ 
-						'</div>'+
-						'<h2>'+ data[i].name +'</h2>'+ 
-						'<span>'+ data[i].dateTime +'</span>'+
-						'</div>';
-						messagesContainer.append(output);
-					}*/
-
-					setTimeout(function(){
-					//salvattore.registerGrid(messagesContainer.get(0));
-				}, 10);
-				} else {
-					loadMore.hide();
-					messagesContainer.addClass('no-messages').append('<div class="no-message"><p>Não recebemos nenhuma mensagem. Que tal ser o primeiro?</p></div>');
-				}
-			});
-
-			/* Load more messages */
-			loadMore.click(function(){
-				var page = messagesContainer.data('page');
-				var btn = $(this);
-
-				btn.find('i').toggleClass('icon-plus icon-spinner');
-
-				$.getJSON(messagesAPI, {select: true, page: page+1 }, function(response) {
-					if (response.success) {
-						var data = response.data;
-						/*for (var i = 0; i < data.length; i++) {
-							var output = '<div class="">'+
-							'<div class="message-wrap">'+
-							'<p>'+ data[i].message +'</p>'+ 
-							'</div>'+
-							'<h2>'+ data[i].name +'</h2>'+ 
-							'<span>'+ data[i].dateTime +'</span>'+
-							'</div>';
-							messagesContainer.append(output);
-						}*/
-						$.each(data, function(index, value){
-						var output = '<div class="message">'+
-						'<div class="message-wrap">'+
-						'<p>'+ value.message +'</p>'+ 
-						'</div>'+
-						'<h2>'+ value.name +'</h2>'+ 
-						'<span>'+ value.dateTime +'</span>'+
-						'</div>';
-						var item = document.createElement('div');
-						var grid = document.querySelector('#messages');
-						salvattore['append_elements'](grid, [item]);
-						item.outerHTML = output;
-					});
-						messagesContainer.data('page', page+1);
-						btn.find('i').toggleClass('icon-spinner icon-plus');
-					} else {
-						setTimeout(function(){
-							btn.find('i').remove();
-							btn.addClass('disabled');
-							btn.attr('disabled', 'disabled');
-						}, 200);
-					}
-				});
-
-			});
-
-
+		$.each(data, function(index, value){
+			var output = '<div class="message">'+
+			'<div class="message-wrap">'+
+			'<p>'+ value.message +'</p>'+ 
+			'</div>'+
+			'<h2>'+ value.name +'</h2>'+ 
+			'<span>'+ value.dateTime +'</span>'+
+			'</div>';
+			var item = document.createElement('div');
+			var grid = document.querySelector('#messages');
+			salvattore['append_elements'](grid, [item]);
+			item.outerHTML = output;
 		});
+
+/*for (var i = 0; i < data.length; i++) {
+	var output = '<div class="">'+
+	'<div class="message-wrap">'+
+	'<p>'+ data[i].message +'</p>'+ 
+	'</div>'+
+	'<h2>'+ data[i].name +'</h2>'+ 
+	'<span>'+ data[i].dateTime +'</span>'+
+	'</div>';
+	messagesContainer.append(output);
+}*/
+
+setTimeout(function(){
+	//salvattore.registerGrid(messagesContainer.get(0));
+}, 10);
+} else {
+	loadMore.hide();
+	messagesContainer.addClass('no-messages').append('<div class="no-message"><p>Não recebemos nenhuma mensagem. Que tal ser o primeiro?</p></div>');
+}
+});
+
+/* Load more messages */
+loadMore.click(function(){
+	var page = messagesContainer.data('page');
+	var btn = $(this);
+
+	btn.find('i').toggleClass('icon-plus icon-spinner');
+
+	$.getJSON(messagesAPI, {select: true, page: page+1 }, function(response) {
+		if (response.success) {
+			var data = response.data;
+			/*for (var i = 0; i < data.length; i++) {
+				var output = '<div class="">'+
+				'<div class="message-wrap">'+
+				'<p>'+ data[i].message +'</p>'+ 
+				'</div>'+
+				'<h2>'+ data[i].name +'</h2>'+ 
+				'<span>'+ data[i].dateTime +'</span>'+
+				'</div>';
+				messagesContainer.append(output);
+			}*/
+			$.each(data, function(index, value){
+				var output = '<div class="message">'+
+				'<div class="message-wrap">'+
+				'<p>'+ value.message +'</p>'+ 
+				'</div>'+
+				'<h2>'+ value.name +'</h2>'+ 
+				'<span>'+ value.dateTime +'</span>'+
+				'</div>';
+				var item = document.createElement('div');
+				var grid = document.querySelector('#messages');
+				salvattore['append_elements'](grid, [item]);
+				item.outerHTML = output;
+			});
+			messagesContainer.data('page', page+1);
+			btn.find('i').toggleClass('icon-spinner icon-plus');
+		} else {
+			setTimeout(function(){
+				btn.find('i').remove();
+				btn.addClass('disabled');
+				btn.attr('disabled', 'disabled');
+			}, 200);
+		}
+	});
+
+});
+
+
+});
 
 $(window).resize(function() {
 

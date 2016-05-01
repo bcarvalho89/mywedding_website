@@ -1542,6 +1542,60 @@ footer {
 #info #mapa {
   background-color: red; }
 
+/* RSVP */
+#rsvp .assessoria {
+  padding: 15px;
+  background-color: #efb8c6;
+  color: #fff; }
+  #rsvp .assessoria p:last-child {
+    margin-bottom: 0; }
+
+#rsvp .rsvp {
+  padding: 15px;
+  background-color: #29aba7;
+  color: #fff; }
+
+#rsvp #form_rsvp {
+  margin-top: 30px; }
+  #rsvp #form_rsvp label {
+    display: inline-block;
+    margin-right: 7.5px; }
+  #rsvp #form_rsvp input {
+    display: inline-block;
+    background-color: #f9f9fb;
+    border-bottom: 2px solid rgba(239, 184, 198, 0.2);
+    margin-right: 15px; }
+    #rsvp #form_rsvp input:active, #rsvp #form_rsvp input:focus {
+      border-bottom: 2px solid #efb8c6; }
+    #rsvp #form_rsvp input.name {
+      max-width: 200px; }
+    #rsvp #form_rsvp input.child {
+      width: 20px; }
+    #rsvp #form_rsvp input.age {
+      width: 30px; }
+  #rsvp #form_rsvp .form-group {
+    margin-bottom: 15px; }
+    #rsvp #form_rsvp .form-group:first-child .name,
+    #rsvp #form_rsvp .form-group:first-child label:nth-child(3) {
+      margin-left: -3px; }
+    #rsvp #form_rsvp .form-group:first-child .child {
+      margin-left: -3px; }
+  #rsvp #form_rsvp .remove {
+    background-color: #FD0B48; }
+  #rsvp #form_rsvp .add {
+    text-align: center; }
+  #rsvp #form_rsvp .confirmation {
+    margin-top: 30px;
+    text-align: center; }
+    #rsvp #form_rsvp .confirmation .btn {
+      margin: 0 15px; }
+    #rsvp #form_rsvp .confirmation .yes {
+      background-color: #1a6d6b; }
+    #rsvp #form_rsvp .confirmation .maybe {
+      background-color: #e17a94; }
+    #rsvp #form_rsvp .confirmation .no {
+      background-color: #FD0B48; }
+
 /* Guestbook */
 #messages {
   /*column-count: 3;
@@ -1613,6 +1667,7 @@ textarea {
   border-bottom: 2px solid rgba(41, 171, 167, 0.2);
   margin-bottom: 15px;
   padding: 5px;
+  background-color: transparent;
   transition: .5s ease-in-out; }
   input:active, input:focus,
   textarea:active,
@@ -1694,22 +1749,28 @@ textarea {
 .icon-spinner:before {
   -webkit-animation: spin 2s infinite linear;
           animation: spin 2s infinite linear;
-  content: '\e800'; }
-
-.icon-plus:before {
-  content: '\e801'; }
-
-.icon-whatsapp:before {
   content: '\e802'; }
 
-.icon-phone:before {
+.icon-user-remove:before {
+  content: '\e800'; }
+
+.icon-user-add:before {
+  content: '\e801'; }
+
+.icon-plus:before {
   content: '\e803'; }
 
-.icon-mail:before {
+.icon-whatsapp:before {
   content: '\e804'; }
 
-.icon-ok:before {
+.icon-phone:before {
   content: '\e805'; }
+
+.icon-mail:before {
+  content: '\e806'; }
+
+.icon-ok:before {
+  content: '\e807'; }
 
 p {
   margin: 0 0 15px 0; }

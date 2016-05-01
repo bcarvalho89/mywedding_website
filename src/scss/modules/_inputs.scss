@@ -9,6 +9,7 @@ textarea {
 	border-bottom: 2px solid rgba($tiffanny,0.2);
 	margin-bottom: $gutter;
 	padding: 5px;
+	background-color: transparent;
 	
 	transition: .5s ease-in-out;
 	&:active,

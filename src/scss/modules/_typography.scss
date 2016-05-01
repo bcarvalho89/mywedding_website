@@ -60,13 +60,15 @@
 
 .icon-spinner:before {
 	animation: spin 2s infinite linear;
-	content: '\e800'; 
+	content: '\e802';
 }
-.icon-plus:before { content: '\e801'; }
-.icon-whatsapp:before { content: '\e802'; }
-.icon-phone:before { content: '\e803'; }
-.icon-mail:before { content: '\e804'; }
-.icon-ok:before { content: '\e805'; }
+.icon-user-remove:before { content: '\e800'; }
+.icon-user-add:before { content: '\e801'; }
+.icon-plus:before { content: '\e803'; }
+.icon-whatsapp:before { content: '\e804'; }
+.icon-phone:before { content: '\e805'; }
+.icon-mail:before { content: '\e806'; }
+.icon-ok:before { content: '\e807'; }
 
 p {
 	margin: 0 0 $gutter 0;
