@@ -13,6 +13,7 @@ $db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
 if ($db->connect_errno) {
 	echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
+	die;
 }
 
 function title($title) {
