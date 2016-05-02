@@ -35,29 +35,42 @@
 	.message {
 		text-align: justify;
 		margin: 0 10px 20px;
-		/*page-break-inside: avoid;
-		break-inside: avoid;*/
+		border-radius: $border-radius;
 		color: #fff;
 		padding: $gutter*2;
 		margin-bottom: $gutter*2;
-		/*.message-wrap {
+		.message-wrap {
 			border: 2px solid #fff;
-			padding: $gutter;
+			padding: $gutter / 2;
 			p:last-child {
 				margin-bottom: 0;
 			}
-			}*/
+		}
+		span {
+			text-align: right;
+			display: block;
+			font-size: 75%;
 		}
 	}
+}
 
-	#guestbook_form {
-		width: 100%;
-		margin-top: $gutter*2;
-		.response {
-			margin-bottom: $gutter;
-			span {
-				display: block;
-				font-size: 80%;
-			}
+#guestbook_form {
+	width: 100%;
+	margin-top: $gutter*2;
+	.response {
+		margin-bottom: $gutter;
+		span {
+			display: block;
+			font-size: 80%;
 		}
 	}
+	.btn {
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+#load-more {
+	display: block;
+	margin: 0 auto;
+}

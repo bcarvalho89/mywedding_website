@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+
+/* Gifts */
+#gifts {
+	.list {
+		color: #fff;
+		padding: $gutter;
+		h4 {
+			font-size: 1.6em;
+		}
+		.icon {
+			font-size: 5em;
+		}
+		p {
+			margin: $gutter 0;
+		}
+		ul {
+		margin-bottom: $gutter;	
+		}
+	}
+}

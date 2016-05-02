@@ -70,6 +70,8 @@
 
 		$(document).ready(function() {
 
+			
+
 			dateCountdown('28/08/2016','11:00h',countdown);
 
 			$('#form_rsvp').on('change', '.child', function(){
@@ -158,16 +160,16 @@
 			});
 
 
-			/* Botao topo */
-			toTop.click(function(e) {
-				e.preventDefault();
-				$('body,html').animate({
-					scrollTop: 0,
-				}, 400);
-			});
+/* Botao topo */
+toTop.click(function(e) {
+	e.preventDefault();
+	$('body,html').animate({
+		scrollTop: 0,
+	}, 400);
+});
 
-			menu.on('click', 'a', function(event) {
-				event.preventDefault();
+menu.on('click', 'a', function(event) {
+	event.preventDefault();
 	//menu.find('.active').removeClass('active');
 	//$(this).addClass('active');
 	var $target = $('#'+($(this).data('section')));
@@ -177,56 +179,56 @@
 	});
 });
 
-			$('#guestbook_form').submit(function(event) {
-				event.preventDefault();
-				var name = $(this).find('#guestName').val(),
-				message = $(this).find('#guestMessage').val(),
-				form = this,
-				responseEl = $(form).find('.response');
+$('#guestbook_form').submit(function(event) {
+	event.preventDefault();
+	var name = $(this).find('#guestName').val(),
+	message = $(this).find('#guestMessage').val(),
+	form = this,
+	responseEl = $(form).find('.response');
 
-				$.ajax({
-					url: messagesAPI,
-					type: 'POST',
-					dataType: 'json',
-					data: {name: name, message: message, insert: true},
-				})
-				.done(function(response) {
-					console.log(response);
-					responseEl.html('');
-					if (response.success) {
-						var data = response.data;
-						var output = '<div class="message">'+
-						'<div class="message-wrap">'+
-						'<p>'+ data.message +'</p>'+ 
-						'</div>'+
-						'<h2>'+ data.name +'</h2>'+ 
-						'<span>'+ data.dateTime +'</span>'+
-						'</div>';
-						var item = document.createElement('div');
-						var grid = document.querySelector('#messages');
-						salvattore['append_elements'](grid, [item]);
-						item.outerHTML = output;
-						messagesContainer.removeClass('no-messages').find('.no-message').remove();
-						loadMore.fadeIn();
-						form.reset();
-					} else {
-						var msg = '';
-						for (var i = 0; i < response.msg.length; i++) {
-							msg += '<span>'+ response.msg[i] +'</span>';
-						}
-						responseEl.html(msg);
-					}
+	$.ajax({
+		url: messagesAPI,
+		type: 'POST',
+		dataType: 'json',
+		data: {name: name, message: message, insert: true},
+	})
+	.done(function(response) {
+		console.log(response);
+		responseEl.html('');
+		if (response.success) {
+			var data = response.data;
+			var output = '<div class="message">'+
+			'<div class="message-wrap">'+
+			'<p>'+ data.message +'</p>'+ 
+			'</div>'+
+			'<h2>'+ data.name +'</h2>'+ 
+			'<span>'+ data.dateTime +'</span>'+
+			'</div>';
+			var item = document.createElement('div');
+			var grid = document.querySelector('#messages');
+			salvattore['append_elements'](grid, [item]);
+			item.outerHTML = output;
+			messagesContainer.removeClass('no-messages').find('.no-message').remove();
+			loadMore.fadeIn();
+			form.reset();
+		} else {
+			var msg = '';
+			for (var i = 0; i < response.msg.length; i++) {
+				msg += '<span>'+ response.msg[i] +'</span>';
+			}
+			responseEl.html(msg);
+		}
 	//console.log("success");
 })
-				.fail(function(error) {
-					console.log(error);
+	.fail(function(error) {
+		console.log(error);
 	//console.log("error");
 })
-				.always(function() {
+	.always(function() {
 	//console.log("complete");
 });
 
-			});
+});
 
 /* Fetch first page of messages */
 $.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
@@ -323,6 +325,21 @@ $(window).resize(function() {
 $(window).load(function() {
 	setTimeout(function(){
 		$('body').addClass('loaded');
+		/* Init Photos */
+		$('.gallery').masonry({
+			itemSelector: '.image',
+			columnWidth: '.image',
+			percentPosition: true
+		});
+		$(".gallery").lightGallery({
+			thumbnail:true,
+			thumbMargin: 2,
+		currentPagerPosition: 'middle',
+		download: false,
+		counter: false,
+		animateThumb: false,
+		showThumbByDefault: false
+		}); 
 	}, 1000);
 });
 

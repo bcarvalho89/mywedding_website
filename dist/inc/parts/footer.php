@@ -12,8 +12,13 @@
 	</div>
 </footer>
 
+<a href="#" class="to-top"><i class="icon-up"></i></a>
+
 <script src="assets/components/jquery/jquery.min.js"></script>
+<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
 <script src="assets/components/salvattore/salvattore.min.js"></script>
+<script src="assets/components/lg/lightgallery.min.js"></script>
+<script src="assets/components/lg/lg-thumbnail.min.js"></script>
 <script src="assets/js/scripts.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

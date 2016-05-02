@@ -6,6 +6,7 @@
 		padding: $gutter;
 		background-color: $pink;
 		color: #fff;
+		border-radius: $border-radius;		
 		p:last-child {
 			margin-bottom: 0;
 		}
@@ -14,6 +15,7 @@
 		padding: $gutter;
 		background-color: $tiffanny;
 		color: #fff;
+		border-radius: $border-radius;
 	}
 	#form_rsvp {
 		margin-top: $gutter *2;

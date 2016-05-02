@@ -9,16 +9,12 @@
 		background-color: $pink;
 		padding: $gutter;
 		color: #fff;
-		.when {
-			/*width: 60%;
-			float: left;*/
-		}
+		border-radius: $border-radius;
 		.qr {
 			text-align: center;
 			background-color: $tiffanny;
 			padding: 5px;
-			/*width: 40%;
-			float: right;*/
+			border-radius: $border-radius;
 			.caption {
 				padding: 5px;
 				font-size: 75%;
@@ -27,5 +23,6 @@
 	}
 	#mapa {
 		background-color: red;
+		border-radius: $border-radius;
 	}
 }

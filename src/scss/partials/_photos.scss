@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+
+/* Photos */
+#photos {
+	.gallery {
+		//padding: $gutter;
+		background-color: $tiffanny;
+		/*column-count: 10;
+		column-gap: $gutter;*/
+		.image {
+			display: block;
+			width: 9%;
+			margin: 0.5%;
+		}
+	}
+}
