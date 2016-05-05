@@ -25,7 +25,7 @@
 								<p>Domingo, 28 de Agosto de 2016 às 11:00h</p>
 								<br/>
 								<h4>Onde</h4>
-								<p>Espaço Monterrey, Tapera Grande, Itatiba/SP</p>
+								<p>Espaço Monterrey, Tapera Grande<br/>Estrada Municipal Antônio Franchin, S/N Sítio Vila Mada, Itatiba/SP</p>
 							</div>
 							<div class="col-md-4">
 								<div class="qr">

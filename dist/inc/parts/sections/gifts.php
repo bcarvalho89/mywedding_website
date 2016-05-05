@@ -17,8 +17,9 @@
 						<div class="icon">
 							<i class="icon-gift"></i>
 						</div>
-						<h4>Nome da Lista 1</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus justo, quis hendrerit nulla mattis sit amet.</p>
+						<h4>Casas Bahia</h4>
+						<p>Código da lista: <strong>540006</strong></p>
+						<a href="http://www.casasbahia.com.br/Site/ListaGerenciadaLandingPage.aspx?idListaCompra=540006" class="btn tiffanny" target="_blank">Acessar Lista</a>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -41,8 +42,9 @@
 						<div class="icon">
 							<i class="icon-gift"></i>
 						</div>
-						<h4>Nome da Lista 3</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus justo, quis hendrerit nulla mattis sit amet.</p>
+						<h4>Etna</h4>
+						<p>Código da lista: <strong>gl180420221</strong></p>
+						<a href="https://www.etna.com.br/etna/pagina-de-lista?page=1&giftlistId=gl180420221" class="btn tiffanny" target="_blank">Acessar Lista</a>
 					</div>
 				</div>
 			</div>
