@@ -1563,8 +1563,17 @@ footer {
   background-color: #efb8c6;
   color: #fff;
   border-radius: 2px; }
-  #rsvp .assessoria p:last-child {
-    margin-bottom: 0; }
+  #rsvp .assessoria p {
+    margin: 0; }
+  #rsvp .assessoria .horario {
+    position: relative; }
+    #rsvp .assessoria .horario:before {
+      content: "{";
+      font-weight: bold;
+      position: absolute;
+      top: -20px;
+      left: -25px;
+      font-size: 48px; }
 
 #rsvp .rsvp {
   padding: 15px;

@@ -18,11 +18,18 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="assessoria">
-						<p class="text-center">Ao entrar em contato, dia o nome dos noivos!</p>
+						<p class="text-center">Ao entrar em contato, diga o nome dos noivos!</p>
 						<br/>
-						<p><i class="icon-whatsapp"></i><i class="icon-phone"></i> (11) 99306.8234 - Paula</p>
-						<p><i class="icon-whatsapp"></i><i class="icon-phone"></i> (11) 99371.9925 - Talita</p>
-						<p><i class="icon-mail"></i> maisoncerimonial@hotmail.com</p>
+						<div class="row middle-xs">
+							<div class="col-md-6">
+								<p><i class="icon-whatsapp"></i><i class="icon-phone"></i> (11) 99306.8234 - Paula</p>
+								<p><i class="icon-whatsapp"></i><i class="icon-phone"></i> (11) 99371.9925 - Talita</p>
+							</div>
+							<div class="col-md-6">
+								<p class="horario"><small>De segunda a sexta, das 9:00 às 17:00</small></p>
+							</div>
+						</div>
+						<p style="margin-top:15px"><i class="icon-mail"></i> maisoncerimonial@hotmail.com</p>
 					</div>
 				</div>
 				<div class="col-md-6">

@@ -6,9 +6,20 @@
 		padding: $gutter;
 		background-color: $pink;
 		color: #fff;
-		border-radius: $border-radius;		
-		p:last-child {
-			margin-bottom: 0;
+		border-radius: $border-radius;	
+		p {
+			margin: 0;
+		}
+		.horario {
+			position: relative;
+			&:before {
+				content: "{";
+				font-weight: bold;
+				position: absolute;
+				top: -20px;
+				left: -25px;
+				font-size: 48px;
+			}
 		}
 	}
 	.rsvp {
