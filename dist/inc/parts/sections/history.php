@@ -30,7 +30,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="bruno-text">
-					<p>O Noivo</p>
+						<p>O Noivo</p>
 						<h2>Bruno Gomes de Carvalho</h2>
 					</div>
 				</div>
@@ -38,8 +38,12 @@
 
 			<div class="row">
 				<div class="col-xs-12">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus justo, quis hendrerit nulla mattis sit amet. Vivamus ut sodales felis. Maecenas sollicitudin tincidunt metus, a auctor tortor mollis eu. Quisque sed elit id mi lacinia maximus non eget magna. Phasellus vestibulum efficitur enim sit amet facilisis.</p>
-					<p>Duis cursus vehicula ornare. Aenean velit augue, dignissim id justo imperdiet, convallis molestie nisi. Sed elementum purus tellus, vitae cursus mauris lobortis ac. Cras non commodo nulla. Praesent eget pretium dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed fermentum, ligula ut elementum facilisis, risus sem ornare neque, nec laoreet metus velit id est. Pellentesque interdum, justo sed gravida bibendum, mi lectus placerat urna, et laoreet nisl leo eu libero.</p>
+					<p>Dois adolescentes, estudantes e bons colegas de sala de aula. Dois desconhecidos com destinos traçados.</p>
+					<p>Separados no próximo ano por salas de aula. Mas como o destino já esta traçado, fomos unidos pelo mesmo emprego.</p>
+					<p>Depois de varias conversas, aqueles colegas se tornaram bons amigos e nossos corações batendo mais fortes um pelo outro.</p>
+					<p>Até que no dia 27/08/2005 veio o grande pedido: "Quer namorar comigo?". E naquele momento, dois adolescentes de 16 anos começaram a entender o que era o amor.</p>
+					<p>Após 11 anos com muitas brigas, tristezas e emoções, sabemos entender e compreender o que é o amor.</p>
+					<p>E então decidimos sentir este amor pela vida inteira.</p>
 				</div>
 			</div>
 		</div>
