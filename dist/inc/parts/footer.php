@@ -14,6 +14,8 @@
 
 <a href="#" class="to-top"><i class="icon-up"></i></a>
 
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4MrhDnhLBhDguCOatzh2ztpGlJSRcAoE"></script>
+
 <script src="assets/components/jquery/jquery.min.js"></script>
 <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
 <script src="assets/components/salvattore/salvattore.min.js"></script>

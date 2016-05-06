@@ -898,6 +898,10 @@ textarea:focus,
 button:focus {
   outline: 0; }
 
+.link {
+  color: #29aba7;
+  font-weight: bold; }
+
 /* Layout */
 .container {
   position: relative;
