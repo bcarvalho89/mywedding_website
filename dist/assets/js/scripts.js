@@ -139,7 +139,7 @@
 				var formGroupLength = formGroup.length;
 
 				var block = '<div class="form-group">'+
-				'<label>Pessoa '+ (formGroupLength+1) +'</label>'+
+				'<label>Nome</label>'+
 				'<input class="name" type="text" placeholder="Digite o nome completo" />'+
 				'<label>É criança?</label>'+
 				'<input class="child" type="checkbox" name="child" />'+
@@ -154,19 +154,20 @@
 				$(this).parent().remove();
 			});
 
-			$('#form_rsvp .confirmation').click(function(e){
+			$('#form_rsvp .confirmation .btn').click(function(e){
 				e.preventDefault();
+				var confirmation = $(this).data('confirmation');
 				var group = {};
 				var form = [];
 				var msg = [];
 				var responseEl = $('#form_rsvp .response');
-				var formGroup = $('#form_rsvp .form-group');
+				var formGroup = $('#form_rsvp .form-group'),
+				error = false
 
 				formGroup.each(function(index, el) {
 					var name = $.trim($(el).find('.name').val());
-					var child = false,
-					age = null,
-					error = false;
+					var child = 0,
+					age = null;
 
 					if(name.length < 10) {
 						msg.push('Digite o nome completo');
@@ -175,7 +176,7 @@
 
 					
 					if($(el).find('.child').prop('checked')) {
-						child = true;
+						child = 1;
 						age = $.trim($(el).find('.age').val());
 						age = parseInt(age);
 						if(age > 14 || isNaN(age)) {
@@ -191,6 +192,7 @@
 							'age': age
 						}
 						form.push(group);
+
 					} else {
 						var output = '';
 						for (var i = 0; i < msg.length; i++) {
@@ -200,24 +202,48 @@
 					}
 				});
 
-				console.log(form);
+				if (!error) {
 
-				//$('#form_rsvp').find('.btn').addClass('disabled').attr('disabled', 'disabled');
+					$.ajax({
+						url: 'inc/send_mail.php',
+						type: 'POST',
+						dataType: 'json',
+						beforeSend: function(){
+							$('#form_rsvp').find('.btn').addClass('disabled').attr('disabled', 'disabled');
+							$('#form_rsvp').find('input').addClass('disabled').attr('disabled', 'disabled');
+							responseEl.html('<i class="icon-spinner"></i>');
 
-
+						},
+						data: {people: form, confirmation: confirmation},
+					})
+					.done(function(response) {
+						if (!response.success) {
+							$('#form_rsvp').find('.btn').removeClass('disabled').removeAttr('disabled');
+							$('#form_rsvp').find('input').removeClass('disabled').removeAttr('disabled');
+						}
+						responseEl.html('<span>'+ response.msg +'</span>');
+					})
+					.fail(function(error) {
+						$('#form_rsvp').find('.btn').removeClass('disabled').removeAttr('disabled');
+						$('#form_rsvp').find('input').removeClass('disabled').removeAttr('disabled');
+					})
+					.always(function() {
+						console.log("complete");
+					});
+				}
 			});
 
 
-			/* Botao topo */
-			toTop.click(function(e) {
-				e.preventDefault();
-				$('body,html').animate({
-					scrollTop: 0,
-				}, 400);
-			});
+/* Botao topo */
+toTop.click(function(e) {
+	e.preventDefault();
+	$('body,html').animate({
+		scrollTop: 0,
+	}, 400);
+});
 
-			menu.on('click', 'a', function(event) {
-				event.preventDefault();
+menu.on('click', 'a', function(event) {
+	event.preventDefault();
 	//menu.find('.active').removeClass('active');
 	//$(this).addClass('active');
 	var $target = $('#'+($(this).data('section')));
@@ -227,75 +253,75 @@
 	});
 });
 
-			$('#guestbook_form').submit(function(event) {
-				event.preventDefault();
-				var name = $(this).find('#guestName').val(),
-				message = $(this).find('#guestMessage').val(),
-				form = this,
-				responseEl = $(form).find('.response');
+$('#guestbook_form').submit(function(event) {
+	event.preventDefault();
+	var name = $(this).find('#guestName').val(),
+	message = $(this).find('#guestMessage').val(),
+	form = this,
+	responseEl = $(form).find('.response');
 
-				$.ajax({
-					url: messagesAPI,
-					type: 'POST',
-					dataType: 'json',
-					data: {name: name, message: message, insert: true},
-				})
-				.done(function(response) {
-					console.log(response);
-					responseEl.html('');
-					if (response.success) {
-						var data = response.data;
-						var output = '<div class="message">'+
-						'<div class="message-wrap">'+
-						'<p>'+ data.message +'</p>'+ 
-						'</div>'+
-						'<h2>'+ data.name +'</h2>'+ 
-						'<span>'+ data.dateTime +'</span>'+
-						'</div>';
-						var item = document.createElement('div');
-						var grid = document.querySelector('#messages');
-						salvattore['append_elements'](grid, [item]);
-						item.outerHTML = output;
-						messagesContainer.removeClass('no-messages').find('.no-message').remove();
-						loadMore.fadeIn();
-						form.reset();
-					} else {
-						var msg = '';
-						for (var i = 0; i < response.msg.length; i++) {
-							msg += '<span>'+ response.msg[i] +'</span>';
-						}
-						responseEl.html(msg);
-					}
+	$.ajax({
+		url: messagesAPI,
+		type: 'POST',
+		dataType: 'json',
+		data: {name: name, message: message, insert: true},
+	})
+	.done(function(response) {
+		console.log(response);
+		responseEl.html('');
+		if (response.success) {
+			var data = response.data;
+			var output = '<div class="message">'+
+			'<div class="message-wrap">'+
+			'<p>'+ data.message +'</p>'+ 
+			'</div>'+
+			'<h2>'+ data.name +'</h2>'+ 
+			'<span>'+ data.dateTime +'</span>'+
+			'</div>';
+			var item = document.createElement('div');
+			var grid = document.querySelector('#messages');
+			salvattore['append_elements'](grid, [item]);
+			item.outerHTML = output;
+			messagesContainer.removeClass('no-messages').find('.no-message').remove();
+			loadMore.fadeIn();
+			form.reset();
+		} else {
+			var msg = '';
+			for (var i = 0; i < response.msg.length; i++) {
+				msg += '<span>'+ response.msg[i] +'</span>';
+			}
+			responseEl.html(msg);
+		}
 	//console.log("success");
 })
-				.fail(function(error) {
-					console.log(error);
+	.fail(function(error) {
+		console.log(error);
 	//console.log("error");
 })
-				.always(function() {
+	.always(function() {
 	//console.log("complete");
 });
 
-			});
+});
 
-			/* Fetch first page of messages */
-			$.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
-				if (response.success) {
-					var data = response.data;
+/* Fetch first page of messages */
+$.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
+	if (response.success) {
+		var data = response.data;
 
-					$.each(data, function(index, value){
-						var output = '<div class="message">'+
-						'<div class="message-wrap">'+
-						'<p>'+ value.message +'</p>'+ 
-						'</div>'+
-						'<h2>'+ value.name +'</h2>'+ 
-						'<span>'+ value.dateTime +'</span>'+
-						'</div>';
-						var item = document.createElement('div');
-						var grid = document.querySelector('#messages');
-						salvattore['append_elements'](grid, [item]);
-						item.outerHTML = output;
-					});
+		$.each(data, function(index, value){
+			var output = '<div class="message">'+
+			'<div class="message-wrap">'+
+			'<p>'+ value.message +'</p>'+ 
+			'</div>'+
+			'<h2>'+ value.name +'</h2>'+ 
+			'<span>'+ value.dateTime +'</span>'+
+			'</div>';
+			var item = document.createElement('div');
+			var grid = document.querySelector('#messages');
+			salvattore['append_elements'](grid, [item]);
+			item.outerHTML = output;
+		});
 
 /*for (var i = 0; i < data.length; i++) {
 	var output = '<div class="">'+
@@ -317,16 +343,16 @@ setTimeout(function(){
 }
 });
 
-			/* Load more messages */
-			loadMore.click(function(){
-				var page = messagesContainer.data('page');
-				var btn = $(this);
+/* Load more messages */
+loadMore.click(function(){
+	var page = messagesContainer.data('page');
+	var btn = $(this);
 
-				btn.find('i').toggleClass('icon-plus icon-spinner');
+	btn.find('i').toggleClass('icon-plus icon-spinner');
 
-				$.getJSON(messagesAPI, {select: true, page: page+1 }, function(response) {
-					if (response.success) {
-						var data = response.data;
+	$.getJSON(messagesAPI, {select: true, page: page+1 }, function(response) {
+		if (response.success) {
+			var data = response.data;
 			/*for (var i = 0; i < data.length; i++) {
 				var output = '<div class="">'+
 				'<div class="message-wrap">'+
@@ -361,10 +387,10 @@ setTimeout(function(){
 		}
 	});
 
-			});
+});
 
 
-		});
+});
 
 $(window).resize(function() {
 

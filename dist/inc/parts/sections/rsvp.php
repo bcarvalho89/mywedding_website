@@ -37,7 +37,7 @@
 						<p class="text-center">Preencha os campos abaixo e as pessoas que irão junto com você.<br />Atente-se à quantidade de convites individuais que enviamos!</p>
 						<form id="form_rsvp">
 							<div class="form-group">
-								<label>Pessoa 1</label>
+								<label>Nome</label>
 								<input class="name" type="text" placeholder="Digite o nome completo" />
 								<label>É criança?</label>
 								<input class="child" type="checkbox" name="child" />

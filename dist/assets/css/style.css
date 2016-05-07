@@ -1610,6 +1610,12 @@ footer {
     background-color: #FD0B48; }
   #rsvp #form_rsvp .add {
     text-align: center; }
+  #rsvp #form_rsvp .response {
+    margin-top: 30px;
+    text-align: center; }
+    #rsvp #form_rsvp .response span {
+      display: block;
+      font-size: 80%; }
   #rsvp #form_rsvp .confirmation {
     margin-top: 30px;
     text-align: center; }
