@@ -228,7 +228,7 @@
 						$('#form_rsvp').find('input').removeClass('disabled').removeAttr('disabled');
 					})
 					.always(function() {
-						console.log("complete");
+						
 					});
 				}
 			});
