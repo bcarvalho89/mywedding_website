@@ -81,5 +81,5 @@ gulp.task('bs-reload', function () {
 gulp.task('default', ['css', 'js', 'browser-sync'], function () {
 	gulp.watch(["src/scss/*/*.scss", "src/scss/*.scss"], ['css']);
 	gulp.watch("src/js/*.js", ['js']);
-	gulp.watch(["dist/*.php", "dist/inc/*.php", "dist/inc/*/*.php"], ['bs-reload']);
+	gulp.watch(["dist/*.php", "dist/inc/*.php", "dist/inc/*/*.php", "dist/inc/*/*/*.php"], ['bs-reload']);
 	});

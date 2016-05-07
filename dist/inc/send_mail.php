@@ -74,6 +74,6 @@ if (!empty($_POST)) {
 	}
 
 } else {
-	header("location:index.php");
+	header("location:../index.php");
 }
 ?>

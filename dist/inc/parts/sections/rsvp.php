@@ -5,7 +5,7 @@
 	<div class="content">
 		<div class="container">
 			<div class="row description">
-				<div class="col-xs-12">
+				<div class="off-xs-2 col-xs-8">
 					<p>Sua presença deixará este dia ainda mais feliz e especial!<br/>Por isso, confirme sua presença até <strong>18/08</strong> através dos contatos abaixo ou pelo nosso formulário.</p>
 				</div>
 			</div>

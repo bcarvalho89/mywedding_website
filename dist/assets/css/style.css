@@ -1630,13 +1630,12 @@ footer {
 
 /* Photos */
 #photos .gallery {
-  background-color: #29aba7;
   /*column-count: 10;
 		column-gap: $gutter;*/
   width: 100%; }
   #photos .gallery .image {
     display: block;
-    width: 9%;
+    width: 7.5%;
     margin: 0.5%; }
 
 /* Gifts */
