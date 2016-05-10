@@ -37,13 +37,13 @@
 			</div>
 
 			<div class="row">
-				<div class="col-xs-12">
-					<p>Dois adolescentes, estudantes e bons colegas de sala de aula. Dois desconhecidos com destinos traçados.</p>
-					<p>Separados no próximo ano por salas de aula. Mas como o destino já esta traçado, fomos unidos pelo mesmo emprego.</p>
-					<p>Depois de varias conversas, aqueles colegas se tornaram bons amigos e nossos corações batendo mais fortes um pelo outro.</p>
-					<p>Até que no dia 27/08/2005 veio o grande pedido: "Quer namorar comigo?". E naquele momento, dois adolescentes de 16 anos começaram a entender o que era o amor.</p>
-					<p>Após 11 anos com muitas brigas, tristezas e emoções, sabemos entender e compreender o que é o amor.</p>
-					<p>E então decidimos sentir este amor pela vida inteira.</p>
+				<div class="off-xs-1 col-xs-10 text-center">
+					<p>Começou em 2004. Dois adolescentes, estudantes e bons colegas de sala de aula. Dois desconhecidos com destinos traçados.</p>
+					<p>Mesmo sendo separados por sala de aula no ano letivo seguinte, fomos unidos pelo mesmo local de trabalho.</p>
+					<p>Depois de alguma enrolação de ambas as partes e algumas idas ao cinema, os colegas se tornaram amigos fazendo com que nossos corações batessem mais forte quando estavamos juntos.</p>
+					<p>Até que em uma bela manhã, na pracinha da feira de quinta-feira, aconteceu nosso primeiro beijo e no dia 27.08.2005 veio o grande pedido: "Quer namorar comigo?". E naquele momento, dois adolescentes de 16 anos começaram a entender o que era o amor.</p>
+					<p>Após 11 anos enfrentando diversos desafios, momentos bons e outros nem tanto, tristezas e emoções, aprendemos que quando estamos juntos, podemos superar qualquer coisa, pois sabemos entender e compreender o que é o amor.</p>
+					<p>E assim então, decidimos sentir este amor pela vida inteira.</p>
 				</div>
 			</div>
 		</div>

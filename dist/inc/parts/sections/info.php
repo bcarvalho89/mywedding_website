@@ -7,7 +7,7 @@
 
 			<div class="row description">
 				<div class="off-xs-2 col-xs-8">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus justo, quis hendrerit nulla mattis sit amet. Vivamus ut sodales felis.</p>
+					<p>Fique informado em onde e quando será nosso casamento. Você não vai perder toda emoção desde o início, não é?</p>
 				</div>
 			</div>
 

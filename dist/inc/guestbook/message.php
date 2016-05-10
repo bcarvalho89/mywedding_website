@@ -9,7 +9,7 @@ require_once("../config.php");
 if (isset($_POST["insert"])) {
 	$response = array('success' => true);
 
-	// assigning the $_POST values to varaible
+	// assigning the $_POST values to variable
 	$name = trim($db->escape_string($_POST["name"]));
 	$message = trim($db->escape_string($_POST["message"]));
 	$ip = ip2long($_SERVER["REMOTE_ADDR"]);

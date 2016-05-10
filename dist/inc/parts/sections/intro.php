@@ -19,8 +19,8 @@
 	</div>
 	<div class="content">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 text-center">
+			<div class="row description">
+				<div class="off-xs-2 col-xs-8">
 					<h3>Bem-vindo ao nosso site!</h3>
 					<p>Aqui você encontrará todas as informações necessárias para participar do nosso grande dia!<br/>"Felicidade é poder compartilar bons momentos com que amamos!"</p>
 				</div>

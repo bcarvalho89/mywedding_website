@@ -899,8 +899,19 @@ button:focus {
   outline: 0; }
 
 .link {
-  color: #29aba7;
-  font-weight: bold; }
+  font-weight: bold;
+  position: relative; }
+  .link:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 2px;
+    bottom: -3px;
+    background-color: #fff;
+    width: 0;
+    transition: .2s ease-in-out; }
+  .link:hover:before {
+    width: 100%; }
 
 /* Layout */
 .container {

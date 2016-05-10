@@ -49,6 +49,22 @@ button {
 
 
 .link {
-	color: $tiffanny;
 	font-weight: bold;
+	position: relative;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		height: 2px;
+		bottom: -3px;
+		background-color: #fff;
+		width: 0;
+
+		transition: .2s ease-in-out;
+	}
+	&:hover {
+		&:before {
+			width: 100%;
+		}
+	}
 }

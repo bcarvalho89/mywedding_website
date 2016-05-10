@@ -7,7 +7,7 @@
 
 			<div class="row description">
 				<div class="off-xs-2 col-xs-8">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus justo, quis hendrerit nulla mattis sit amet. Vivamus ut sodales felis.</p>
+					<p>Nesses 11 anos de namoro, conhecemos alguns lugares legais e passamos por diversos momentos e fases, na qual em algumas oportunidades conseguimos registrar.</p>
 				</div>
 			</div>
 

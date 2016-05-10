@@ -11,7 +11,8 @@
 		header = $('header'),
 		countdown = $('.countdown-text'),
 		loadMore = $('#load-more'),
-		toTop = $('.to-top');
+		toTop = $('.to-top'),
+		top = $(window).scrollTop();
 
 		Date.dateDiff = function(datepart, fromdate, todate) {
 			datepart = datepart.toLowerCase();
@@ -60,7 +61,27 @@
 
 		}
 
+		function menuState(top) {
+			if (top > (winH - (scrollOffset * 6))) {
+				header.addClass('pinned');
+				toTop.addClass('show');
+			} else {
+				header.removeClass('pinned');
+				toTop.removeClass('show');
+			}
 
+			$('.menu a').each(function () {
+				var currLink = $(this);
+				var refElement = $('#' + currLink.data('section'));
+				if (refElement.position().top - (scrollOffset * 2) <= top && refElement.position().top + refElement.height() > top) {
+					$('.menu a').removeClass('active');
+					currLink.addClass('active');
+				}
+				else{
+					currLink.removeClass('active');
+				}
+			});
+		}
 
 		function initMaps() {
 			var styles = [
@@ -110,8 +131,7 @@
 
 		$(document).ready(function() {
 
-			
-
+			menuState(top);
 			dateCountdown('28/08/2016','11:00h',countdown);
 
 			$('#form_rsvp').on('change', '.child', function(){
@@ -166,7 +186,6 @@
 						error = true;
 					}
 
-					
 					if($(el).find('.child').prop('checked')) {
 						child = 1;
 						age = $.trim($(el).find('.age').val());
@@ -195,7 +214,6 @@
 				});
 
 				if (!error) {
-
 					$.ajax({
 						url: 'inc/send_mail.php',
 						type: 'POST',
@@ -219,9 +237,7 @@
 						$('#form_rsvp').find('.btn').removeClass('disabled').removeAttr('disabled');
 						$('#form_rsvp').find('input').removeClass('disabled').removeAttr('disabled');
 					})
-					.always(function() {
-						
-					});
+					.always(function() {});
 				}
 			});
 
@@ -236,8 +252,6 @@ toTop.click(function(e) {
 
 menu.on('click', 'a', function(event) {
 	event.preventDefault();
-	//menu.find('.active').removeClass('active');
-	//$(this).addClass('active');
 	var $target = $('#'+($(this).data('section')));
 	$('html, body').stop().animate({
 		'scrollTop': $target.offset().top - scrollOffset
@@ -284,15 +298,12 @@ $('#guestbook_form').submit(function(event) {
 			}
 			responseEl.html(msg);
 		}
-	//console.log("success");
-})
+	})
 	.fail(function(error) {
 		console.log(error);
-	//console.log("error");
-})
+	})
 	.always(function() {
-	//console.log("complete");
-});
+	});
 
 });
 
@@ -315,24 +326,10 @@ $.getJSON(messagesAPI, {select: true, page: pageNum}, function(response) {
 			item.outerHTML = output;
 		});
 
-/*for (var i = 0; i < data.length; i++) {
-	var output = '<div class="">'+
-	'<div class="message-wrap">'+
-	'<p>'+ data[i].message +'</p>'+ 
-	'</div>'+
-	'<h2>'+ data[i].name +'</h2>'+ 
-	'<span>'+ data[i].dateTime +'</span>'+
-	'</div>';
-	messagesContainer.append(output);
-}*/
-
-setTimeout(function(){
-	//salvattore.registerGrid(messagesContainer.get(0));
-}, 10);
-} else {
-	loadMore.hide();
-	messagesContainer.addClass('no-messages').append('<div class="no-message"><p>Não recebemos nenhuma mensagem. Que tal ser o primeiro?</p></div>');
-}
+	} else {
+		loadMore.hide();
+		messagesContainer.addClass('no-messages').append('<div class="no-message"><p>Não recebemos nenhuma mensagem. Que tal ser o primeiro?</p></div>');
+	}
 });
 
 /* Load more messages */
@@ -345,16 +342,6 @@ loadMore.click(function(){
 	$.getJSON(messagesAPI, {select: true, page: page+1 }, function(response) {
 		if (response.success) {
 			var data = response.data;
-			/*for (var i = 0; i < data.length; i++) {
-				var output = '<div class="">'+
-				'<div class="message-wrap">'+
-				'<p>'+ data[i].message +'</p>'+ 
-				'</div>'+
-				'<h2>'+ data[i].name +'</h2>'+ 
-				'<span>'+ data[i].dateTime +'</span>'+
-				'</div>';
-				messagesContainer.append(output);
-			}*/
 			$.each(data, function(index, value){
 				var output = '<div class="message">'+
 				'<div class="message-wrap">'+
@@ -418,26 +405,7 @@ $(window).scroll(function() {
 		'background-position-y' : (100 - scrollDistance) + '%'
 	});
 
-	if (top > (winH - (scrollOffset * 6))) {
-		header.addClass('pinned');
-		toTop.addClass('show');
-	} else {
-		header.removeClass('pinned');
-		toTop.removeClass('show');
-	}
-
-	$('.menu a').each(function () {
-		var currLink = $(this);
-		var refElement = $('#' + currLink.data('section'));
-		if (refElement.position().top - (scrollOffset * 2) <= top && refElement.position().top + refElement.height() > top) {
-			$('.menu a').removeClass('active');
-			currLink.addClass('active');
-		}
-		else{
-			currLink.removeClass('active');
-		}
-	});
-
+	menuState(top);
 });
 
 });

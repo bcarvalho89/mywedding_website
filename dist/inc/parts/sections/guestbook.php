@@ -6,10 +6,9 @@
 		<div class="container">
 			<div class="row description">
 				<div class="off-xs-2 col-xs-8">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus justo, quis hendrerit nulla mattis sit amet. Vivamus ut sodales felis.</p>
+					<p>Utilize esse espaço para nos deixar uma mensagem de felicitações, votos ou qualquer outra coisa queira. Promotemos ler com muito carinho.</p>
 				</div>
 			</div>
-
 
 			<div id="messages" data-page="1" data-columns>
 			</div>

@@ -7,7 +7,7 @@
 
 			<div class="row description">
 				<div class="off-xs-2 col-xs-8">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor tempus justo, quis hendrerit nulla mattis sit amet. Vivamus ut sodales felis.</p>
+					<p>Separamos algumas sugestões de presentes na qual gostaríamos de ganhar, mas não fique preso nas lojas que escolhemos. Você pode comprar on desejar e se estiver em dúvida, dim dim é sempre bem-vindo ;).</p>
 				</div>
 			</div>
 
