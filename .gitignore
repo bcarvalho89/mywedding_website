@@ -47,3 +47,4 @@ $RECYCLE.BIN/
 
 
 dist/inc/phpmailer/config.php
+dist/inc/cache
