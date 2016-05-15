@@ -12,9 +12,19 @@
 			&.raquel {
 				float: right;
 				background-color: $pink;
+				background-image: url(../img/kel.jpg);
+				background-repeat: no-repeat;
+				background-size: 100%;
+				background-size: cover;
+				background-position: center center;
 			}
 			&.bruno {
 				background-color: $tiffanny;
+				background-image: url(../img/bruno.jpg);
+				background-repeat: no-repeat;
+				background-size: 100%;
+				background-size: cover;
+				background-position: center center;
 			}
 		}
 	}

@@ -1505,9 +1505,19 @@ footer {
     border-radius: 50%; }
     #history .wedding .photo.raquel {
       float: right;
-      background-color: #efb8c6; }
+      background-color: #efb8c6;
+      background-image: url(../img/kel.jpg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-size: cover;
+      background-position: center center; }
     #history .wedding .photo.bruno {
-      background-color: #29aba7; }
+      background-color: #29aba7;
+      background-image: url(../img/bruno.jpg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-size: cover;
+      background-position: center center; }
 
 #history .and {
   text-align: center;
