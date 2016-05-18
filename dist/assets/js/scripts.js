@@ -223,7 +223,7 @@
 
 				if (!error) {
 					$.ajax({
-						url: 'inc/send_mail.php',
+						url: 'http://brunocarvalho.me/brukel/inc/send_mail.php',
 						type: 'POST',
 						dataType: 'json',
 						beforeSend: function(){
