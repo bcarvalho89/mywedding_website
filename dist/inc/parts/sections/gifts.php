@@ -7,7 +7,7 @@
 
 			<div class="row description">
 				<div class="off-xs-2 col-xs-8">
-					<p>Separamos algumas sugestões de presentes na qual gostaríamos de ganhar, mas não fique preso nas lojas que escolhemos. Você pode comprar on desejar e se estiver em dúvida, dim dim é sempre bem-vindo ;).</p>
+					<p>Separamos algumas sugestões de presentes na qual gostaríamos de ganhar, mas não fique preso nas lojas que escolhemos. Você pode comprar onde desejar e se estiver em dúvida, dim dim é sempre bem-vindo ;).</p>
 				</div>
 			</div>
 

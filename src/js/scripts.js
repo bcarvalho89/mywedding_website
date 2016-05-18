@@ -262,7 +262,7 @@ menu.on('click', 'a', function(event) {
 $('#guestbook_form').submit(function(event) {
 	event.preventDefault();
 	var name = $(this).find('#guestName').val(),
-	message = $(this).find('#guestMessage').val(),
+	message = $(this).find('#guestMessage').val().replace(/(\r\n|\n|\r)/gm,"<br>"),
 	form = this,
 	responseEl = $(form).find('.response');
 
@@ -273,7 +273,6 @@ $('#guestbook_form').submit(function(event) {
 		data: {name: name, message: message, insert: true},
 	})
 	.done(function(response) {
-		console.log(response);
 		responseEl.html('');
 		if (response.success) {
 			var data = response.data;
