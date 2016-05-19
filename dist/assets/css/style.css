@@ -929,7 +929,7 @@ button:focus {
   position: relative; }
 
 section .content {
-  margin: 50px 0px 130px; }
+  margin: 50px 0px 80px; }
 
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -1469,9 +1469,11 @@ footer {
 
 #intro .caption {
   position: absolute;
+  width: 100%;
   top: 50%;
   left: 50%;
   z-index: 2;
+  text-align: center;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -1481,10 +1483,10 @@ footer {
   -webkit-perspective: 1000px;
           perspective: 1000px; }
   #intro .caption h1 {
-    font-size: 5.2em;
+    font-size: 3em;
     display: inline-block; }
   #intro .caption .heart {
-    width: 90px;
+    width: 50px;
     margin: 0 22.5px;
     display: inline-block;
     fill: #efb8c6;
@@ -2029,7 +2031,13 @@ h3 {
     right: 0; }
     .menu li {
       opacity: 1;
-      display: inline-block; } }
+      display: inline-block; }
+  #intro .caption .heart {
+    width: 90px; }
+  #intro .caption h1 {
+    font-size: 5.2em; }
+  section .content {
+    margin: 50px 0px 130px; } }
 
 /* External */
 /*! lightgallery - v1.2.18 - 2016-04-13

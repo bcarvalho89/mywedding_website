@@ -20,7 +20,7 @@
 	<div class="content">
 		<div class="container">
 			<div class="row description">
-				<div class="off-xs-2 col-xs-8">
+				<div class="off-md-2 col-md-8 off-xs-1 col-xs-10">
 					<h3>Bem-vindo ao nosso site!</h3>
 					<p>Aqui você encontrará todas as informações necessárias para participar do nosso grande dia!<br/>"Felicidade é poder compartilar bons momentos com que amamos!"</p>
 				</div>

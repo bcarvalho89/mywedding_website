@@ -24,19 +24,21 @@
 	}
 	.caption {
 		position: absolute;
+		width: 100%;
 		top: 50%;
 		left: 50%;
 		z-index: 2;
+		text-align: center;
 		transform: translate(-50%,-50%);
 		color: #fff;
 		backface-visibility: hidden;
 		perspective: 1000px;
 		h1 {
-			font-size: 5.2em;
+			font-size: 3em;
 			display: inline-block;
 		}
 		.heart {
-			width: 90px;
+			width: 50px;
 			margin: 0 $gutter * 1.5;
 			display: inline-block;
 			fill: $pink;

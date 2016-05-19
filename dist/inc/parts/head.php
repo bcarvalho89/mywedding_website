@@ -12,6 +12,7 @@
 	<meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<meta name="theme-color" content="#efb8c6">
 
 	<!-- Social -->
 	<meta property="og:locale" content="pt_BR">
