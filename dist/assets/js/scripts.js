@@ -20,7 +20,8 @@
 		countdown = $('.countdown-text'),
 		loadMore = $('#load-more'),
 		toTop = $('.to-top'),
-		top = $(window).scrollTop();
+		top = $(window).scrollTop(),
+		hamburger = $('.hamburger');
 
 		Date.dateDiff = function(datepart, fromdate, todate) {
 			datepart = datepart.toLowerCase();
@@ -138,6 +139,13 @@
 		google.maps.event.addDomListener(window, 'load', initMaps);
 
 		$(document).ready(function() {
+
+			hamburger.click(function(){
+				var btn = $(this);
+
+				btn.toggleClass('is-active');
+				menu.toggleClass('show');
+			});
 
 			menuState(top);
 			dateCountdown('28/08/2016','11:00h',countdown);
@@ -265,6 +273,10 @@ menu.on('click', 'a', function(event) {
 		'scrollTop': $target.offset().top - scrollOffset
 	}, 500, 'swing', function () {
 	});
+	if (menu.hasClass('show')){
+		menu.removeClass('show');
+		hamburger.removeClass('is-active');
+	}
 });
 
 $('#guestbook_form').submit(function(event) {
