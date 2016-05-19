@@ -11,6 +11,7 @@
 		color: #fff;
 		border-radius: $border-radius;
 		.qr {
+			display: none;
 			text-align: center;
 			background-color: $tiffanny;
 			padding: 5px;
@@ -20,9 +21,13 @@
 				font-size: 75%;
 			}
 		}
+		a {
+			    display: inline-block;
+		}
 	}
 	#mapa {
-		background-color: red;
+		background-color: $tiffanny;
+		min-height: 300px;
 		border-radius: $border-radius;
 	}
 }

@@ -1582,6 +1582,7 @@ footer {
   color: #fff;
   border-radius: 2px; }
   #info .info-wrap .qr {
+    display: none;
     text-align: center;
     background-color: #29aba7;
     padding: 5px;
@@ -1589,9 +1590,12 @@ footer {
     #info .info-wrap .qr .caption {
       padding: 5px;
       font-size: 75%; }
+  #info .info-wrap a {
+    display: inline-block; }
 
 #info #mapa {
-  background-color: red;
+  background-color: #29aba7;
+  min-height: 300px;
   border-radius: 2px; }
 
 /* RSVP */
@@ -1918,7 +1922,7 @@ textarea {
   .title h2 {
     background-color: #efb8c6;
     padding: 10px 25px;
-    font-size: 2.2em;
+    font-size: 1.8em;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px; }
     .title h2 small {
@@ -2037,7 +2041,11 @@ h3 {
   #intro .caption h1 {
     font-size: 5.2em; }
   section .content {
-    margin: 50px 0px 130px; } }
+    margin: 50px 0px 130px; }
+  #info .info-wrap .qr {
+    display: block; }
+  #info .info-wrap a {
+    display: inline-block; } }
 
 /* External */
 /*! lightgallery - v1.2.18 - 2016-04-13
