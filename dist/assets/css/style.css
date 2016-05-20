@@ -1609,6 +1609,7 @@ footer {
   #rsvp .assessoria .horario {
     position: relative; }
     #rsvp .assessoria .horario:before {
+      display: none;
       content: "{";
       font-weight: bold;
       position: absolute;
@@ -2022,9 +2023,13 @@ h1, h2, h3, h4, h5 {
   display: inline-block; }
 
 h3 {
-  font-size: 2em; }
+  font-size: 1.6em; }
 
 @media only screen and (min-width: 1024px) {
+  h3 {
+    font-size: 2em; }
+  .title h2 {
+    font-size: 2.2em; }
   .hamburger {
     display: none; }
   .menu {
@@ -2045,7 +2050,9 @@ h3 {
   #info .info-wrap .qr {
     display: block; }
   #info .info-wrap a {
-    display: inline-block; } }
+    display: inline-block; }
+  #rsvp .assessoria .horario:before {
+    display: block; } }
 
 /* External */
 /*! lightgallery - v1.2.18 - 2016-04-13
