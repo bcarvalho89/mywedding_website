@@ -1702,16 +1702,18 @@ footer {
   text-align: left;
   margin: 30px 0; }
   #messages:before {
-    content: '3 .column.size-1of3'; }
+    content: '1 .column.size-1of1'; }
   #messages.no-messages {
     /*column-count: 1;*/
     text-align: center; }
   #messages .column {
     float: left; }
-    #messages .column:nth-child(odd) .message {
+    #messages .column .message:nth-child(odd) {
       background-color: #efb8c6; }
-    #messages .column:nth-child(even) .message {
+    #messages .column .message:nth-child(even) {
       background-color: #29aba7; }
+  #messages .size-1of1 {
+    width: 100%; }
   #messages .size-1of3 {
     width: 33.333%; }
   #messages .message {
@@ -2052,7 +2054,15 @@ h3 {
   #info .info-wrap a {
     display: inline-block; }
   #rsvp .assessoria .horario:before {
-    display: block; } }
+    display: block; }
+  #messages:before {
+    content: '3 .column.size-1of3'; }
+  #messages .column {
+    float: left; }
+    #messages .column:nth-child(odd) .message {
+      background-color: #efb8c6; }
+    #messages .column:nth-child(even) .message {
+      background-color: #29aba7; } }
 
 /* External */
 /*! lightgallery - v1.2.18 - 2016-04-13

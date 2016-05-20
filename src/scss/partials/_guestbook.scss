@@ -10,7 +10,7 @@
 	margin: $gutter*2 0;
 	@extend .clear;
 	&:before {
-		content: '3 .column.size-1of3';
+		content: '1 .column.size-1of1';
 	}
 	&.no-messages {
 		/*column-count: 1;*/
@@ -18,16 +18,17 @@
 	}
 	.column {
 		float: left;
-		&:nth-child(odd) {
-			.message {
+		.message {
+			&:nth-child(odd) {
 				background-color: $pink;
 			}
-		}
-		&:nth-child(even) {
-			.message {
+			&:nth-child(even) {
 				background-color: $tiffanny;
 			}
 		}
+	}
+	.size-1of1 {
+		width: 100%;
 	}
 	.size-1of3 {
 		width: 33.333%;

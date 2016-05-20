@@ -59,6 +59,24 @@
 			}
 		}
 	}
+	#messages {
+		&:before {
+			content: '3 .column.size-1of3';
+		}
+		.column {
+			float: left;
+			&:nth-child(odd) {
+				.message {
+					background-color: $pink;
+				}
+			}
+			&:nth-child(even) {
+				.message {
+					background-color: $tiffanny;
+				}
+			}
+		}
+	}
 }
 @media only screen and (min-width:1140px) {
 
