@@ -6,7 +6,7 @@
 		<div class="container">
 
 			<div class="row description">
-				<div class="off-xs-2 col-xs-8">
+				<div class="off-md-2 col-md-8 off-xs-1 col-xs-10">
 					<p>Nesses 11 anos de namoro, conhecemos alguns lugares legais e passamos por diversos momentos e fases, na qual em algumas oportunidades conseguimos registrar.</p>
 				</div>
 			</div>
@@ -14,11 +14,11 @@
 		</div>
 		<div class="container-fluid">
 
-			<div class="row middle-xs">
-				<div class="col-md-4">
+			<div class="row middle-md">
+				<div class="col-md-4 col-xs-12">
 				<iframe width="100%" height="360" src="https://www.youtube.com/embed/6MmNsu9oOLk?rel=0&amp;controls=1" frameborder="0" allowfullscreen></iframe>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-8 col-xs-12">
 					<div class="gallery">
 						<?php
 						$dir          = 'assets/img/gallery';
