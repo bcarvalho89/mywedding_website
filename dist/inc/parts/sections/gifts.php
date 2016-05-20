@@ -6,13 +6,13 @@
 		<div class="container">
 
 			<div class="row description">
-				<div class="off-xs-2 col-xs-8">
+				<div class="off-md-2 col-md-8 off-xs-1 col-xs-10">
 					<p>Separamos algumas sugestões de presentes na qual gostaríamos de ganhar, mas não fique preso nas lojas que escolhemos. Você pode comprar onde desejar e se estiver em dúvida, dim dim é sempre bem-vindo ;).</p>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 col-xs-12">
 					<div class="list bg-pink">
 						<div class="icon">
 							<i class="icon-gift"></i>
@@ -22,7 +22,7 @@
 						<a href="http://www.casasbahia.com.br/Site/ListaGerenciadaLandingPage.aspx?idListaCompra=540006" class="btn tiffanny" target="_blank">Acessar Lista</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 col-xs-12">
 					<div class="list bg-tiffanny">
 						<div class="icon">
 							<i class="icon-money"></i>
@@ -37,7 +37,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 col-xs-12">
 					<div class="list bg-pink">
 						<div class="icon">
 							<i class="icon-gift"></i>
