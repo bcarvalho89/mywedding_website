@@ -1431,7 +1431,7 @@ header {
 footer {
   background-color: #29aba7;
   width: 100%;
-  text-align: right;
+  text-align: center;
   color: #fff;
   font-size: 14px;
   padding: 16px 0; }
@@ -2062,7 +2062,9 @@ h3 {
     #messages .column:nth-child(odd) .message {
       background-color: #efb8c6; }
     #messages .column:nth-child(even) .message {
-      background-color: #29aba7; } }
+      background-color: #29aba7; }
+  footer {
+    text-align: right; } }
 
 /* External */
 /*! lightgallery - v1.2.18 - 2016-04-13

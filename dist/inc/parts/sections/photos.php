@@ -35,7 +35,8 @@
 							$dir_contents = scandir($dir);
 
 							foreach ($dir_contents as $file) {
-								$file_type = strtolower(end(explode('.', $file)));
+								$tmp = explode('.', $file);
+								$file_type = strtolower(end($tmp));
 
 								if ($file !== '.' && $file !== '..' && in_array($file_type, $file_display) == true) {
 									echo '<a class="image" href="'. $dir. '/'. $file. '"><img src="inc/timthumb.php?src='. $dir. '/'. $file. '&w=70" /></a>';
