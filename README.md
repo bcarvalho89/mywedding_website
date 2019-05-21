@@ -1,14 +1,16 @@
 # Meu Casamento / My wedding website
 
-Este site foi criado para fornecer informaÁıes sobre meu casamento ao convidados.
-Basicamente, o site possui as seguintes caracterÌsticas:
+Este site foi criado para fornecer informa√ß√µes sobre meu casamento ao convidados.
+Basicamente, o site possui as seguintes caracter√≠sticas:
 * One page site;
-* Uma introduÁ„o, contendo uma contagem regressiva atÈ a data do casamento;
-* Uma breve histÛria sobre mim e minha noiva;
-* InformaÁıes sobre o local da festa, data e hora;
-* ¡rea para que os convidados possam confirmar a presenÁa no casamento. Disponibilizamos os contatos da assessoria que contratamos e criamos um formul·rio caso alguÈm queira preencher;
+* Uma introdu√ß√£o, contendo uma contagem regressiva at√© a data do casamento;
+* Uma breve hist√≥ria sobre mim e minha noiva;
+* Informa√ß√µes sobre o local da festa, data e hora;
+* √Årea para que os convidados possam confirmar a presen√ßa no casamento. Disponibilizamos os contatos da assessoria que contratamos e criamos um formul√°rio caso algu√©m queira preencher;
 * Nossas listas de presentes para os indecisos.
 * Um mural com nossas fotos;
-* Um espaÁo para que as pessoas possam nos mandar mensagens.
+* Um espa√ßo para que as pessoas possam nos mandar mensagens.
 
-O layout do site e o desenvolvimento foi feito por mim, [Bruno Carvalho](http://brunocarvalho.me/).
+O layout do site e o desenvolvimento foi feito por mim, [Bruno Carvalho](https://brunocarvalho.me/).
+
+## [DEMO](https://brunocarvalho.me/demos/hotsite/)
